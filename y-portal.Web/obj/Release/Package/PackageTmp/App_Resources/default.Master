@@ -1,0 +1,515 @@
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="default.master.cs" inherits="YPortal.Web.App_Resources._default" %>
+
+<!DOCTYPE html>
+<html lang="en" class="ng-app" id="ng-app" ng-app="yPortal" xmlns:ng="http://angularjs.org">
+<head id="Head1" runat="server">
+
+
+    <ycontapidata:metaycont runat="server" id="Meta1" mode="MetaKeyWords" prismicmask="PageContainer" />
+
+
+    <meta charset="utf-8">
+    <title>
+        <asp:contentplaceholder id="ContentPlaceHolderTitle" runat="server">
+            <ycontapidata:metaycont runat="server" id="MetaYCont1" mode="Title" prismicmask="PageContainer" />
+        </asp:contentplaceholder>
+    </title>
+    <noscript>
+        <meta http-equiv="REFRESH" content="0; url=no-javascript.aspx">
+    </noscript>
+
+    <script type="text/javascript">
+        function WindowPopup(url) {
+            newwindow = window.open(url, 'name', 'height=700,width=750');
+            if (window.focus) { newwindow.focus() }
+            return false;
+        }
+
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1.0, user-scalable=no">
+    <link id="page_favicon" href='<%# ResolveUrl("~/App_Style/images/favicon.ico") %>' rel="icon" type="image/x-icon" />
+    <%--  --%>
+
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/font-awesome.css") %>'>
+
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/default.css") %>'>
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/layout.css") %>'>
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/activtrax.css") %>'>
+
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/text.css") %>'>
+    <link href='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery-multiselect/jquery.multiselect.css") %>' rel="stylesheet" />
+    <link href='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-ui.css") %>' rel="stylesheet" />
+    <!-- DHTMLX CSS-->
+    <%-- --%>
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/dhtmlxgrid.css")%>' rel="stylesheet" />
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxCombo/codebase/dhtmlxcombo.css")%>' rel="stylesheet" />
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_calc.css")%>' rel="stylesheet" />
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/skins/dhtmlxgrid_dhx_skyblue.css")%>' rel="stylesheet" />
+
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxCalendar/codebase/dhtmlxcalendar.css")%>' rel="stylesheet" />
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxCalendar/codebase/skins/dhtmlxcalendar_dhx_skyblue.css")%>' rel="stylesheet" />
+    <%-- 
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/dhxscheduler_mobile_debug.css")%>' rel="stylesheet" />
+    --%>
+    <link type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/dhtmlxscheduler.css")%>' rel="stylesheet" />
+
+    <%--   
+    <link  type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/dhtmlxscheduler_flat.css")%>' rel="stylesheet" />
+  
+    <link  type="text/css" href='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/wm_dhtmlxscheduler.css") %>' rel="stylesheet">
+    --%>
+    <!-- DHTMLX CSS-->
+
+
+    <%--<style type="text/css">
+        .frame-responsive {
+            overflow: hidden;
+            border: none;
+            margin: 10px;
+        }
+
+        .frameWrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .frameWrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+    </style>--%>
+    <script type="text/javascript">
+        var _css_prefix = '<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/") %>';
+        var apiUrl = '<%# YPortal.Helpers.SiteSettings.WebApiUrl %>';
+    </script>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>--%>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/angular/angular.v1.2.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-1.11.0.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-ui.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery.maskedinput.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery-multiselect/jquery.multiselect.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery-ajaxTransport-XDomainRequest-master/jquery.xdomainrequest.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/utilities/CookieManager.js") %>'></script>
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="<%# ResolveUrl("~/App_Style/js/html5shiv.js") %>"></script>
+        <script type="text/javascript" src="<%# ResolveUrl("~/App_Style/js/respond.js") %>"></script>
+        <script src="<%= ResolveUrl("~/App_Resources/client-scripts/framework/angular/html5.js") %>"></script>
+        <link rel="stylesheet" type="text/css" href="<%= ResolveUrl("~/App_Style/css/ie8.css") %>">
+
+        <script>
+            $(function() {
+
+                var el;
+
+                $("select#fixedWidth")
+                    .each(function() {
+                        el = $(this);
+                        el.data("origWidth", el.outerWidth()) // IE 8 can haz padding
+                    })
+                    .mouseenter(function() {
+                        $(this).css("width", "auto");
+                    })
+                    .bind("blur change", function() {
+                        el = $(this);
+                        el.css("width", el.data("origWidth"));
+                    });
+
+            });
+        </script>
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+        <script>
+            document.createElement('ng-include');
+            document.createElement('ng-pluralize');
+            document.createElement('ng-view');
+            document.createElement('ng:include');
+            document.createElement('ng:pluralize');
+            document.createElement('ng:view');
+        </script>
+        <style type="text/css">
+            .fixed-summary { position: inherit !important; }
+        </style>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <script src="<%# ResolveUrl("~/App_Resources/client-scripts/framework/angular/json2.min.js") %>"></script>
+    <![endif]-->
+
+    <!--[if IE 9]>
+        <style type="text/css">
+            .custom-container { top: -41px; }
+
+            .dux-content-area .nav-tabs li a { min-height: 90px !important; }
+
+            .dux-footer .fa-2x { font-size: 17px !important; }
+        </style>
+    <![endif]-->
+
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Style/js/bootstrap.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/app/default.master.js") %>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/knockoutjs/knockout-2.3.0.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/knockoutjs/ko-protected-observable.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/knockoutjs/ko-execute-on-enter.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/dhtmlxcommon.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/dhtmlxgrid.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/sources/ext/dhtmlxgrid_pgn.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/dhtmlxgridcell.js")%>'></script>
+    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var player = $f('#videoModal');
+
+            $('.videoPreviewImageYoutube').on('click', function () {
+                var videoSrc = $(this).attr("data-theVideo");
+                $('#videoModal iframe').attr('src', videoSrc);
+                if (videoSrc.indexOf('player.vimeo.com') > -1) {
+                    player.api('play');
+                }
+            });
+
+            $('#videoModal').on('hide.bs.modal', function (e) {
+                var videoSrc = $('#videoModal iframe').attr('src');
+                $('#videoModal iframe').attr('src', '');
+                if (videoSrc.indexOf('player.vimeo.com') > -1) {
+                    player.api('pause');
+                }
+            });
+
+        });
+
+        function AddElement(Source, SourceType) {
+            var ref = null;
+            switch (SourceType) {
+                case "js": {
+                    ref = document.createElement('script');
+                    ref.setAttribute("type", "text/javascript");
+                    ref.setAttribute("src", Source);
+                    document.write(ref.outerHTML);
+                    break;
+                }
+                case "css": {
+                    var headID = document.getElementsByTagName("head")[0];
+                    ref = document.createElement("link");
+                    ref.setAttribute("rel", "stylesheet");
+                    ref.setAttribute("type", "text/css");
+                    ref.setAttribute("href", Source);
+                    headID.appendChild(ref);
+                    break;
+                }
+            }
+        }
+
+        var _css_prefix = '<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/") %>';
+        var ww = $(window).width();
+        ww = 999;
+        if (ww > 900) {
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/dhtmlxscheduler.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_active_links.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/sources/ext/dhtmlxgrid_srnd.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/sources/ext/dhtmlxgrid_json.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_calck.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_acheck.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_clist.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_combo.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/excells/dhtmlxgrid_excell_link.js")%>', 'js');
+
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxCombo/codebase/dhtmlxcombo.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxCalendar/codebase/dhtmlxcalendar.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/ext/dhtmlxscheduler_editors.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxGrid/codebase/ext/dhtmlxgrid_filter.js")%>', 'js');
+
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_minical.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_timeline.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/api.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/ext/dhtmlxscheduler_pdf.js")%>', 'js');
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/sources/ext/dhtmlxscheduler_limit.js")%>', 'js');
+
+
+
+        } else {
+            AddElement('<%# ResolveUrl("~/App_Resources/client-scripts/app/DHTMLX/dhtmlxScheduler/codebase/dhxscheduler_mobile_debug.js")%>', 'js');
+        }
+    </script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Resources/client-scripts/utilities/moment.js")%>'></script>
+
+
+    <asp:contentplaceholder id="head" runat="server">
+    </asp:contentplaceholder>
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PZL2KP"
+            height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push(
+    { 'gtm.start': new Date().getTime(), event: 'gtm.js' }
+    ); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-PZL2KP');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+
+    <asp:literal runat="server" id="ltrGoogleCode"></asp:literal>
+    <asp:literal runat="server" id="ltrGoogleTagManagerPixel"></asp:literal>
+
+    <form id="form1" runat="server">
+        <div id="topNavStrip">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 topNavStripLinks">
+                        <a href="http://ymaryland.org/myaccount" target="_blank">My Account</a>
+                        |
+                        <a href="https://ymaryland.org/membership/fitquest/myfitquestlogin" target="_blank">My FitQuest Login</a>
+                        |
+                        <a href="http://ymaryland.org/register" target="_blank">Program Registration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <asp:Panel ID="pageHeader" CssClass="dux-head clearfix" runat="server">
+            <div class="container">
+                <div class="row turkey-steps">
+                    <div class="col-md-8 branding ">
+                        <div id="mainLogo">
+                            <a href="/">
+                                <img alt="Y of Central MD" src='<%= ResolveUrl("~/App_Style/images/branding/branding-big-01.png") %>' onclick='SpecialRedirect("default")' />
+                            </a>
+                        </div>
+                        <%--<div id="seasonalLogo">
+                            <a class="turkeytrot" href="http://www.ymdturkeytrot.org/" target="_blank" rel="noopener">
+                                <img src='<%= ResolveUrl("~/App_Style/images/turkey-trot-default-2016.png") %>' onmouseover="this.src='<%= ResolveUrl("~/App_Style/images/turkey-trot-hover-2016.png") %>'" onmouseout="this.src='<%= ResolveUrl("~/App_Style/images/turkey-trot-default-2016.png") %>'"/>
+                            </a>
+                        </div>--%>
+                        <%--<a class="turkey-small-text" href="http://www.ymdturkeytrot.org/" target="_blank">
+                            <img src='<%= ResolveUrl("~/App_Style/images/turkey-small-text.png") %>' />
+                        </a>--%>
+                    </div>
+                    <div class="col-md-4 utility">
+                        <span class="mshow" id="AlertPnl" runat="server">
+                            <a class="alert-link" href="javascript:void(0)" data-toggle="modal" data-target="#alertModal"></a>
+                        </span>
+                        <button onclick="mobileMenuClick();" type="button" class=" mobile-nav-btn glyphicon glyphicon-align-justify" data-toggle="collapse" data-target="#demo">
+                        </button>
+
+                        <button onclick="mobileSocialLinkClick();" type="button" class=" mobile-nav-btn" data-toggle="collapse" data-target="#demo-one">
+                            <img src='<%= ResolveUrl("~/App_Style/images/share-icon.png") %>' />
+                        </button>
+
+                        <div class="mobile-share-nav collapse" id="demo-one">
+                            <div ng-controller="MyLocationCtrl" class="my-location">
+                                <%--<a href="" class="alert mobile-hide">Alert</a>--%>
+                                <div>
+                                    <div class="alert-container mobile-hide" id="Div1" runat="server">
+                                        <a class="alert-link" href="javascript:void(0)" data-toggle="modal" data-target="#alertModal">alert</a>
+                                    </div>
+                                    <div class="select-option">My Y </div>
+                                    <select id="fixedWidth" ng-change="SetLocationToCookie()" ng-model="location" ng-options="location as location.Name for location in locationList | filter:{Name:'!Head Start'}" class="form-control">
+                                        <option value="">Select Location</option>
+                                    </select>
+                                </div>
+                                <%-- <select ng-change="SetLocationToCookie()" ng-model="location"  class="form-control">
+                                    <option value="">Select Location</option>
+                                    <%--<option ng-repeat="singleLocation in locationList" value="{{singleLocation.LocationPage}}">{{singleLocation.Name}}</option>
+                                </select>--%>
+
+
+
+                                <%--<select class="form-control">
+                                    <option>Catonsville</option>
+                                </select>--%>
+                                <br class="clear" />
+                                <ul class="mobile-utility-nav">
+                                    <%--<li><a href="" class="alert">Alert</a></li>--%>
+                                    <li><a href="https://www.facebook.com/ycentralmaryland" class="" target="_blank">Facebook</a></li>
+                                    <li><a href="https://twitter.com/ycentralmd" class="" target="_blank">Twitter</a></li>
+                                    <%--<li><a href="https://plus.google.com/app/basic/115251764806480154229/posts?source=appredir" class="" target="_blank">Google Plus</a></li> --%>
+                                    <li><a href="http://www.youtube.com/user/YofCentralMaryland" class="" target="_blank">YouTube</a></li>
+                                    <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>/contactus" class="">Contact Us </a></li>
+                                    <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>/employment" class="">Employment</a> </li>
+                                </ul>
+                            </div>
+                            <br class="clear">
+                            <div class="utility-nav mobile-hide">
+
+                                <p class="sub-nav-log">The Y in Central Maryland &bull; It&#39;s deeper here<sup>&reg;</sup></p>
+
+                                <a href="https://www.facebook.com/ycentralmaryland" class="fa fa-facebook fa-lg" target="_blank"></a>
+                                <a href="https://twitter.com/ycentralmd" class="fa fa-twitter fa-lg" target="_blank"></a>
+                                <%--<a href="https://plus.google.com/115251764806480154229/posts" class="fa fa-google-plus fa-lg" target="_blank"></a> --%>
+                                <a href="http://www.youtube.com/user/YofCentralMaryland" class="fa fa-youtube fa-lg" target="_blank"></a>
+                                <a href="/contactus" class="sub-nav space" onclick='SpecialRedirect("contactus")'>Contact Us </a>
+                                <span>|</span> <a href="/employment" class="sub-nav" onclick='SpecialRedirect("employment")'>Employment</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <br class="clear">
+                    <div class="col-md-12">
+
+
+                        <!-- Begin Menu-->
+                        <ycontapi:ydmenuv2 id="Mnu1" runat="server" />
+                        <!-- End Menu -->
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+        <asp:Panel ID="pageFooter" CssClass="dux-footer" runat="server">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul>
+                            <li><a href="/financialassistance">Financial Assistance </a></li>
+                            <li><a href="/billinginquiries">Billing Inquiries </a></li>
+                            <li><a href="/employment">Employment </a></li>
+                            <li><a href="/leadership">Leadership </a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/mediacenter">Media Center </a></li>
+                            <li><a href="/sponsors">Sponsors </a></li>
+                            <li><a href="/partnershipopportunities">Partnership Opportunities </a></li>
+                            <li><a href="/capitalcampaigns">Capital Campaigns </a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/volunteerlogin">Volunteer Login
+                            </a></li>
+                            <li><a href="/privacypolicy">Privacy Policy </a></li>
+                            <li><a href="/sitemap">Sitemap </a></li>
+                            <li><a href="/contactus">Contact Us </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="explore-donate">
+                            <div class="btn-group">
+                                <%--    <a href="" class="btn btn-velvet">Explore your<br>
+                                    membership options<br>
+                                    TODAY!</a> <a href="" class="btn btn-velvet dropdown-toggle" data-toggle="dropdown"><span class="fa fa-angle-double-right fa-3x"></span></a>--%>
+
+
+                                <a href="/membership/typesrates" class="common-btn btn-velvet"><span class="btn-velvet-border">Explore your<br>
+                                    membership options<br>
+                                    TODAY!</span> </a>
+
+
+                            </div>
+
+                            <a target="_blank" href="https://fundraise.ymaryland.org/campaign/send-a-kid-to-camp-2017/c124714" class="common-btn btn-velvet btn-red"><span class="btn-velvet-border ">DONATE</span> </a>
+
+                        </div>
+                        <div class="social-engagement">
+                            <a href="https://www.facebook.com/ycentralmaryland" class="fa fa-facebook fa-2x" target="_blank"></a>
+                            <a href="https://twitter.com/ycentralmd" class="fa fa-twitter fa-2x" target="_blank"></a>
+
+
+                            <%--<a href="https://plus.google.com/115251764806480154229/posts" class="fa fa-google-plus fa-2x" target="_blank"></a>--%>
+                            <%--<a href="https://plus.google.com/app/basic/115251764806480154229/posts?source=appredir" class="fa fa-google-plus fa-2x" target="_blank"></a>--%>
+
+
+                            <a href="http://www.youtube.com/user/YofCentralMaryland" class="fa fa-youtube fa-2x" target="_blank"></a>
+
+                        </div>
+                        <div class="footer-logo">
+                            <img src='<%= ResolveUrl("~/App_Style/images/footer-logo.png") %>' />
+                        </div>
+                        <div class="hidden-lg hidden-md footer-branding-01">
+                            <a href="">
+                                <img src='<%= ResolveUrl("~/App_Style/images/footer-logo.png") %>' /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+        <asp:Panel ID="pageCopyright" CssClass="dux-copyright" runat="server">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="footer-copyright" src='<%= ResolveUrl("~/App_Style/images/branding/small-branding-sada.png") %>' alt="Y" />
+
+                        Copyright 2015 YMCA of Central Maryland
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h2 id="myLargeModalLabel" class="title-02">Easy to Enroll</h2>
+                    </div>
+                    <div class="frameWrapper">
+                        <iframe width="100%" height="auto" src="https://easytoenroll.ymaryland.org"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title alert-title" id="myModalLabel">Alert - Important Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:repeater id="rptAlerts" runat="server" onitemdatabound="OnItemDataBound_rptAlerts">
+                            <itemtemplate>
+                                <h2 class="modal-title-02">
+                                    <asp:literal id="ltlTitle" runat="server" /></h2>
+                                <p class="modal-text">
+                                    <asp:literal id="ltlDescription" runat="server" />
+                                </p>
+
+                            </itemtemplate>
+                        </asp:repeater>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div>
+                            <iframe width="100%" height="350" src=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+</html>

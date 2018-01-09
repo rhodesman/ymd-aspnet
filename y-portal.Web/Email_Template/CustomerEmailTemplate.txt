@@ -1,0 +1,60 @@
+﻿  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <table align="center" width="750" style="border-collapse:collapse;">
+  	<tr>
+    	<td>
+
+
+        	<table width="100%" align="left" style="border-collapse:collapse; border-bottom:3px solid #7d2a90;">
+    	<tr>
+        	<td><img src="<###SiteUrl###>Email_Template/images/branding-big-01.png" /></td>
+        </tr>
+    </table>
+
+
+
+            <table align="center" width="750" style="padding-left:56px; padding-right:56px; padding-top:44px; padding-bottom:7px; font-family:Verdana, Geneva, sans-serif;">
+                <tr>
+                    <td style="font-weight:normal; text-align:left; color:#525252; font-size:14px;">Hello <###FirstName###>,</td>
+                </tr>
+            </table>
+
+
+
+            <table align="center" width="750" style="padding-left:56px; padding-right:56px; font-family:Verdana, Geneva, sans-serif;">
+                <tr>
+                    <td style="text-align:left; color:#4d4d4d; font-size:14px;">
+					Thank you for your interest in the Y of Central Maryland. A representative has been notified and will be reaching out to you regarding your request within 48 business hours. 
+					For immediate help, please contact your Family Center Y.</td>
+                </tr>
+            </table>
+
+
+            <table align="center" width="750" style="padding-left:56px; padding-right:56px; padding-bottom:50px; padding-top:25px; font-size:14px; font-family:Verdana, Geneva, sans-serif;">
+                <tr>
+                    <td style="text-align:left; color:#525252;">Thank you, <br />
+                        <span style="color:#525252; font-weight:normal;  font-size:14px;">The Y in Central Maryland</span>
+                    </td>
+                </tr>
+                
+            </table>
+
+
+
+			<table align="center" width="750" style="padding-left:56px; padding-right:56px; padding-bottom:50px; padding-top:25px; font-size:14px; font-family:Verdana, Geneva, sans-serif;">
+                <tr>
+                    <td style="text-align:left; color:#525252;">
+                       		  <a  href="https://www.facebook.com/ycentralmaryland" class="" target="_blank"><img style="padding-right:7px" src="<###SiteUrl###>Email_Template/images/facebook.png" /></a>
+                                <a   href="https://twitter.com/ycentralmd" class="" target="_blank"><img style="padding-right:7px" src="<###SiteUrl###>Email_Template/images/twiter.png" /></a>
+                                <!--<a   href="https://plus.google.com/115251764806480154229/posts" class="" target="_blank"><img style="padding-right:7px" src="<###SiteUrl###>Email_Template/images/gpluse.png" /></a>-->
+                                <a   href="http://www.youtube.com/user/YofCentralMaryland" class="" target="_blank"><img style="padding-right:7px" src="<###SiteUrl###>Email_Template/images/youtube.png" /></a>
+                    </td>
+                </tr>
+                
+            </table>
+
+
+
+        </td>
+    </tr>  	
+  </table>  

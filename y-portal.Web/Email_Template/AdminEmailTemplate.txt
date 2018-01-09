@@ -1,0 +1,67 @@
+﻿<table align="center" width="750" style="border-collapse:collapse;">
+  <tr>
+    <td>
+        <table width="100%" align="left" style="border-collapse:collapse; border-bottom:3px solid #7d2a90;">
+            <tr>
+              <td><img src="<###SiteUrl###>Email_Template/images/branding-big-01.png" /></td>
+            </tr>
+          </table>
+          <table align="center" width="750" style="font-family:Verdana, Geneva, sans-serif; padding-left:56px; padding-right:56px; padding-top:20px;">
+          	<tr>
+              <td style="text-align:left; color:#4d4d4d; font-size:18px;">
+			  <###FirstName###> posted a submission on our Web site at http://ymaryland.org contact us form.  
+			  </td>			  
+            </tr>
+            <tr>
+            	<td style="text-align:left; color:#369; font-size:14px; padding-top:10px;">
+			  		We have forwarded their request to you based on the customer's preferred location.
+			 	</td>
+            </tr>
+          </table>
+          <table align="center" width="750" style="padding-left:56px; padding-right:56px; padding-top:13px; padding-bottom:7px; font-family:Verdana, Geneva, sans-serif; text-align:left; color:#545454; font-size:14px;">
+          	
+            <tr>
+              <td>The information they provided includes: </td>
+            </tr>
+            <tr>
+              <td><span style="font-weight:bold;">First Name: </span> <###FirstName###></td>
+            </tr>
+            <tr>
+              <td><span style="font-weight:bold;">Last Name: </span> <###LastName###></td>
+            </tr>
+            <tr>
+              <td> <span style="font-weight:bold;"> Email Address: </span> <###Email###></td>
+            </tr>
+            <tr>
+              <td> <span style="font-weight:bold;"> Phone: </span><###Phone###></td>
+            </tr>
+            <tr>
+              <td> <span style="font-weight:bold;"> LEAD CODE: </span> WS2014 </td>
+            </tr>
+            <tr>
+              <td> <span style="font-weight:bold;"> Location: </span> <###Location###></td>
+            </tr>
+            <tr>
+              <td><span style="font-weight:bold;"> Interest: </span> <###Interests###></td>
+            </tr>
+             <tr>
+              <td> <span style="font-weight:bold;"> Comments: </span><###Feedback###></td>
+            </tr>
+          </table>
+          
+          <table align="center" width="750" style="padding-left:56px; padding-right:56px; padding-bottom:50px; padding-top:25px; font-size:14px; font-family:Verdana, Geneva, sans-serif;">
+            <tr>
+            	<td>
+                	Please contact this person as soon as possible.
+                </td>
+            </tr>
+            <tr>            	
+              <td style="text-align:left; color:#4d4d4d;">
+                <span style="color:#4d4d4d; font-weight:bold;  font-size:16px;">The Y in Central Maryland</span> <br /> 
+              	<a style="font-size:16px; color:#66C;" href="http://ymaryland.org/">ymaryland.org</a>
+              </td>
+            </tr>
+          </table>
+      </td>
+  </tr>
+</table>

@@ -1,0 +1,147 @@
+﻿
+<div ng-controller="blastAddEditCtrl">
+    <span class="loader" ng-show="dataloaderFlag==true" ng-hide="dataloaderFlag==false"></span>
+    <a href="#/blastData" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back</a>
+
+
+     <h2 class="title-01">{{pagemode}}</h2>
+   
+
+    <div id="divMessage" style="display: none;"></div>
+  
+    <div ng-show="(pagemode == 'Edit Blast'&& blastEntity)||(pagemode == 'Add Blast')" ng-form="addEditBlastForm">
+        <div class="row">
+            <div class="col-md-5"  >
+                    <img class="img-responsive"id="Img1"  ng-show="isPictureLoad "   ng-src="../Admin/EmailThumbImage/{{picture}}" />
+              
+            </div>
+
+            <div class="col-md-7">
+
+                <ul class="list-group">                 
+     <!--               <li class="list-group-item">
+                        <label>Blast Name:</label>
+                        <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.blastName.$error.required || formSubmitted && addEditBlastForm.blastName.$error.pattern}">
+                            <input type="text" name="blastName"  class="form-control" ng-model="blastEntity.BlastDisplayName" ng-pattern="/^[A-Za-z 0-9 \- _ . ']+$/" ng-required="true" />
+                            <span ng-show="formSubmitted && addEditBlastForm.blastName.$error.required" class="requiredfield"></span>
+                            <span ng-show="formSubmitted && addEditBlastForm.blastName.$error.pattern" class="requiredfield">Invalid Format</span>
+                        </div>
+
+                    </li>-->
+
+
+                    <li class="list-group-item">
+
+                        <div class="row">
+    <div class="col-md-3">
+
+                        <label> Start Date:</label>
+                        <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.blastStartDate.$error.required } ">                         
+                            <input type="text" name="blastStartDate"  class="form-control" ng-model="startDate" ng-required="true" readonly="true" datepicker />
+                            <span ng-show="formSubmitted && addEditBlastForm.blastStartDate.$error.required" class="requiredfield"></span>
+                        </div>
+
+
+</div>
+  <!--  <div class="col-md-3">
+        
+                                <label>Hr</label>
+                        <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.blastStartDateHr.$error.required} ">
+                            <select name="blastStartDateHr" ng-model="hrstartdatemodel" class="form-control" ng-options="hour for hour in hoursArray" ng-required="true">
+                                <option value="" ng-show="true">Hour</option>
+                            </select>
+                            <span ng-show=" formSubmitted && addEditBlastForm.blastStartDateHr.$error.required" class="requiredfield"></span>
+                        </div>
+
+        </div>
+     <div class="col-md-3">
+                        
+
+                        <label>Min</label>
+                        <div ng-class="{'form-group':true, 'has-error':formSubmitted &&  addEditBlastForm.blastStartDateMin.$error.required }">
+                            <select name="blastStartDateMin" ng-model="minstartdatemodel" class="form-control" ng-options="min for min in minutesArray" ng-required="true">
+                                <option value="" ng-show="true">Minute</option>
+                            </select>
+                            <span ng-show=" formSubmitted && addEditBlastForm.blastStartDateMin.$error.required" class="requiredfield"></span>
+                        </div>
+
+          </div>
+     <div class="col-md-3">
+                        <label>AM/PM</label>
+
+                        <div ng-class="{'form-group':true, 'has-error':formSubmitted &&  addEditBlastForm.blastStartDateAMPM.$error.required }">
+                            <select name="blastStartDateAMPM" ng-model="ampmstartdatemodel" class="form-control" ng-options="ap for ap in ampmArray" ng-required="true">
+                                <option value="" ng-show="true">AM/PM</option>
+                            </select>
+                            <span ng-show=" formSubmitted && addEditBlastForm.blastStartDateAMPM.$error.required" class="requiredfield"></span>
+                        </div>
+
+          </div>-->
+  
+
+    </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <label>Scheduler Mailing Id: </label>
+                        <div ng-class="{ 'form-group':true,'has-error':formSubmitted &&  addEditBlastForm.schedulerMailId.$error.required ||formSubmitted &&  addEditBlastForm.schedulerMailId.$error.pattern}">
+                            <input name="schedulerMailId" type="text" class="form-control" ng-model="blastEntity.SchedulerMailingId" ng-required="true" ng-pattern="/^[0-9]+$/" />
+                            <span ng-show="formSubmitted && addEditBlastForm.schedulerMailId.$error.required" class="requiredfield"></span>
+                            <span ng-show="formSubmitted && addEditBlastForm.schedulerMailId.$error.pattern" class="requiredfield">Invalid Format</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <label>Mailing Subject: </label>
+                        <div ng-class="{'form-group':true, 'has-error': formSubmitted && addEditBlastForm.mailingSubject.$error.required ||formSubmitted && addEditBlastForm.mailingSubject.$error.pattern}">
+                            <!--<input name="mailingSubject" type="text" class="form-control" ng-model="blastEntity.MailingSubject" ng-required="true" ng-pattern="/^[A-Za-z 0-9 \- _ . :!']+$/" />-->
+                            <input name="mailingSubject" type="text" class="form-control" ng-model="blastEntity.MailingSubject" ng-required="true" />
+                            <span ng-show="formSubmitted && addEditBlastForm.mailingSubject.$error.required" class="requiredfield"></span>
+                            <span ng-show="formSubmitted && addEditBlastForm.mailingSubject.$error.pattern" class="requiredfield">Invalid Format</span>
+                        </div>
+
+                    </li>
+                    <li class="list-group-item">
+                        <label>Thumbnail Pic ( Allowed extensions (".jpg", ".jpeg", ".bmp", ".gif", ".png")):</label>
+                         
+                        <span ng-hide="blastEntity.ThumbnailUrl==null || blastEntity.ThumbnailUrl=='undefined'  ">
+                            {{blastEntity.ThumbnailUrl}} 
+                        </span>             
+                          <br />   <br />  
+                        <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.thumbnailPic.$error.required } ">
+                            <input name="thumbnailPic" type="file" id="fileUpload" class="" ng-model="blastEntity.ThumbnailUrl" valid-file ng-required="false" />
+                            <span ng-show="formSubmitted && addEditBlastForm.thumbnailPic.$error.required" class="requiredfield"></span>
+                        </div>
+                    </li>
+
+                <!--    <li class="list-group-item">
+                        <label>IsActive: </label>
+                        <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.isActiveblast.$error.required }">
+                            <select name="isActiveblast" ng-model="isActive" class="form-control" ng-options="ial for ial in isActiveList" ng-required="true">
+                                <option value="" ng-show="true">Select</option>
+                            </select>
+                            <span ng-show="formSubmitted && addEditBlastForm.isActiveblast.$error.required" class="requiredfield"></span>
+                        </div>
+                    </li>-->
+
+                      <li class="list-group-item">
+                        <!--<label>IsActive: </label>-->
+                     <!--   <div ng-class="{ 'form-group':true, 'has-error': formSubmitted && addEditBlastForm.isActiveCheckBox.$error.required }">     -->   
+                          <div>              
+                            <input  name="isActiveCheckBox" type="checkbox"  ng-model="isActive"> IsActive </input>
+                          </div>  
+                          <!--  <span ng-show="formSubmitted && addEditBlastForm.isActiveCheckBox.$error.required" class="requiredfield"></span>
+                        </div>-->
+                    </li>
+
+                </ul>
+
+                <div class="clearfix">
+                    <input type="button" class="btn btn-primary" value="Save" ng-click="SaveData()" />
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

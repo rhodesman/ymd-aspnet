@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeeDB_Model_NS.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EmployeeDB_Model_NSStoreContainer">
+          <EntitySet Name="AdminUser" EntityType="EmployeeDB_Model_NS.Store.AdminUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AppSettings" EntityType="EmployeeDB_Model_NS.Store.AppSettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Blasts" EntityType="EmployeeDB_Model_NS.Store.Blasts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Campaigns" EntityType="EmployeeDB_Model_NS.Store.Campaigns" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contacts" EntityType="EmployeeDB_Model_NS.Store.Contacts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Interests" EntityType="EmployeeDB_Model_NS.Store.Interests" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LandingPageProspect" EntityType="EmployeeDB_Model_NS.Store.LandingPageProspect" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Locations" EntityType="EmployeeDB_Model_NS.Store.Locations" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Blasts_Campaigns" Association="EmployeeDB_Model_NS.Store.FK_Blasts_Campaigns">
+            <End Role="Campaigns" EntitySet="Campaigns" />
+            <End Role="Blasts" EntitySet="Blasts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AppSettings">
+          <Key>
+            <PropertyRef Name="AppSettingsId" />
+          </Key>
+          <Property Name="AppSettingsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppKey" Type="varchar" MaxLength="50" />
+          <Property Name="AppValue" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Blasts">
+          <Key>
+            <PropertyRef Name="BlastId" />
+          </Key>
+          <Property Name="BlastId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignId" Type="bigint" />
+          <Property Name="BlastDisplayName" Type="varchar" MaxLength="100" />
+          <Property Name="BlastStartDate" Type="datetime" />
+          <Property Name="BlastEndDate" Type="datetime" />
+          <Property Name="BlastType" Type="varchar" MaxLength="100" />
+          <Property Name="BlastStatus" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Campaigns">
+          <Key>
+            <PropertyRef Name="CampaignId" />
+          </Key>
+          <Property Name="CampaignId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignName" Type="varchar" MaxLength="100" />
+          <Property Name="CampaignCode" Type="varchar" MaxLength="100" />
+          <Property Name="SilverpopDatabaseId" Type="bigint" />
+          <Property Name="SilverpopDatabaseName" Type="varchar" MaxLength="100" />
+          <Property Name="TotalProspects" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Location" Type="varchar" MaxLength="70" />
+          <Property Name="Interests" Type="varchar" MaxLength="400" />
+          <Property Name="Feedback" Type="varchar" MaxLength="500" />
+          <Property Name="DateSubmitted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Interests">
+          <Key>
+            <PropertyRef Name="InterestId" />
+          </Key>
+          <Property Name="InterestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="300" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LandingPageProspect">
+          <Key>
+            <PropertyRef Name="ProspectId" />
+          </Key>
+          <Property Name="ProspectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubmittedOn" Type="datetime" />
+          <Property Name="FirstName" Type="varchar" MaxLength="1000" />
+          <Property Name="LastName" Type="varchar" MaxLength="1000" />
+          <Property Name="Email" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="300" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="EmailTemplate" Type="varchar" MaxLength="100" />
+          <Property Name="LocationPage" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Blasts_Campaigns">
+          <End Role="Campaigns" Type="EmployeeDB_Model_NS.Store.Campaigns" Multiplicity="0..1" />
+          <End Role="Blasts" Type="EmployeeDB_Model_NS.Store.Blasts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaigns">
+              <PropertyRef Name="CampaignId" />
+            </Principal>
+            <Dependent Role="Blasts">
+              <PropertyRef Name="CampaignId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_Namespace" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminUsers" EntityType="Model_Namespace.AdminUser" />
+          <EntitySet Name="Contacts" EntityType="Model_Namespace.Contact" />
+          <EntitySet Name="Interests" EntityType="Model_Namespace.Interest" />
+          <EntitySet Name="Locations" EntityType="Model_Namespace.Location" />
+          <EntitySet Name="AppSettings" EntityType="Model_Namespace.AppSetting" />
+          <EntitySet Name="Blasts" EntityType="Model_Namespace.Blast" />
+          <EntitySet Name="Campaigns" EntityType="Model_Namespace.Campaign" />
+          <AssociationSet Name="FK_Blasts_Campaigns" Association="Model_Namespace.FK_Blasts_Campaigns">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="Blast" EntitySet="Blasts" />
+          </AssociationSet>
+          <EntitySet Name="LandingPageProspects" EntityType="Model_Namespace.LandingPageProspect" />
+        </EntityContainer>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Type="Int32" Name="ContactId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Location" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Interests" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Feedback" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateSubmitted" Precision="3" />
+        </EntityType>
+        <EntityType Name="Interest">
+          <Key>
+            <PropertyRef Name="InterestId" />
+          </Key>
+          <Property Type="Int32" Name="InterestId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DisplayOrder" />
+          <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Type="Int32" Name="LocationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DisplayOrder" />
+          <Property Type="String" Name="Email" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailTemplate" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LocationPage" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AppSetting">
+          <Key>
+            <PropertyRef Name="AppSettingsId" />
+          </Key>
+          <Property Type="Int32" Name="AppSettingsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AppKey" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AppValue" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Blast">
+          <Key>
+            <PropertyRef Name="BlastId" />
+          </Key>
+          <Property Name="BlastId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignId" Type="Int64" />
+          <Property Name="BlastDisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BlastStartDate" Type="DateTime" Precision="3" />
+          <Property Name="BlastEndDate" Type="DateTime" Precision="3" />
+          <Property Name="BlastType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BlastStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Campaign" Relationship="Model_Namespace.FK_Blasts_Campaigns" FromRole="Blast" ToRole="Campaign" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignId" />
+          </Key>
+          <Property Name="CampaignId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CampaignCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SilverpopDatabaseId" Type="Int64" />
+          <Property Name="SilverpopDatabaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TotalProspects" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Blasts" Relationship="Model_Namespace.FK_Blasts_Campaigns" FromRole="Campaign" ToRole="Blast" />
+        </EntityType>
+        <Association Name="FK_Blasts_Campaigns">
+          <End Type="Model_Namespace.Campaign" Role="Campaign" Multiplicity="0..1" />
+          <End Type="Model_Namespace.Blast" Role="Blast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignId" />
+            </Principal>
+            <Dependent Role="Blast">
+              <PropertyRef Name="CampaignId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LandingPageProspect">
+          <Key>
+            <PropertyRef Name="ProspectId" />
+          </Key>
+          <Property Type="Int32" Name="ProspectId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="SubmittedOn" Precision="3" />
+          <Property Type="String" Name="FirstName" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDB_Model_NSStoreContainer" CdmEntityContainer="DatabaseContext">
+          <EntitySetMapping Name="AdminUsers">
+            <EntityTypeMapping TypeName="Model_Namespace.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUser">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="Model_Namespace.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="Interests" ColumnName="Interests" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interests">
+            <EntityTypeMapping TypeName="Model_Namespace.Interest">
+              <MappingFragment StoreEntitySet="Interests">
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InterestId" ColumnName="InterestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="Model_Namespace.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="LocationPage" ColumnName="LocationPage" />
+                <ScalarProperty Name="EmailTemplate" ColumnName="EmailTemplate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="Model_Namespace.AppSetting">
+              <MappingFragment StoreEntitySet="AppSettings">
+                <ScalarProperty Name="AppValue" ColumnName="AppValue" />
+                <ScalarProperty Name="AppKey" ColumnName="AppKey" />
+                <ScalarProperty Name="AppSettingsId" ColumnName="AppSettingsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blasts">
+            <EntityTypeMapping TypeName="Model_Namespace.Blast">
+              <MappingFragment StoreEntitySet="Blasts">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="BlastStatus" ColumnName="BlastStatus" />
+                <ScalarProperty Name="BlastType" ColumnName="BlastType" />
+                <ScalarProperty Name="BlastEndDate" ColumnName="BlastEndDate" />
+                <ScalarProperty Name="BlastStartDate" ColumnName="BlastStartDate" />
+                <ScalarProperty Name="BlastDisplayName" ColumnName="BlastDisplayName" />
+                <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+                <ScalarProperty Name="BlastId" ColumnName="BlastId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaigns">
+            <EntityTypeMapping TypeName="Model_Namespace.Campaign">
+              <MappingFragment StoreEntitySet="Campaigns">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TotalProspects" ColumnName="TotalProspects" />
+                <ScalarProperty Name="SilverpopDatabaseName" ColumnName="SilverpopDatabaseName" />
+                <ScalarProperty Name="SilverpopDatabaseId" ColumnName="SilverpopDatabaseId" />
+                <ScalarProperty Name="CampaignCode" ColumnName="CampaignCode" />
+                <ScalarProperty Name="CampaignName" ColumnName="CampaignName" />
+                <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LandingPageProspects">
+            <EntityTypeMapping TypeName="Model_Namespace.LandingPageProspect">
+              <MappingFragment StoreEntitySet="LandingPageProspect">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+                <ScalarProperty Name="ProspectId" ColumnName="ProspectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DatabaseContext" ZoomLevel="83" ShowGrid="false" SnapToGrid="false" DisplayType="true">
+        <EntityTypeShape EntityType="Model_Namespace.AdminUser" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model_Namespace.Contact" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model_Namespace.Interest" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model_Namespace.Location" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model_Namespace.AppSetting" Width="1.5" PointX="4.7334335888266139" PointY="2.8122489318859416" />
+        <EntityTypeShape EntityType="Model_Namespace.Blast" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Model_Namespace.Campaign" Width="1.5" PointX="1.125" PointY="7.75" />
+        <AssociationConnector Association="Model_Namespace.FK_Blasts_Campaigns" />
+        <EntityTypeShape EntityType="Model_Namespace.LandingPageProspect" Width="1.5" PointX="7.2645583689506994" PointY="7.1490963181635685" />
+      </Diagram></Diagrams>
+  </Designer>
+</edmx:Edmx>

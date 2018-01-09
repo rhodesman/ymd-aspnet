@@ -1,0 +1,87 @@
+﻿/* CSS Document */
+
+#activtrax-login-box {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #636466;
+	padding: 0;
+	margin: 0;
+	background-color:#efeff0;
+}
+
+#activtrax-login-box {
+	padding: 0;
+	margin: 0;
+}
+
+#activtrax-login-box form {
+	clear: both;
+}
+
+#activtrax-login-box.activtrax-tall {
+	width: 240px;
+	height:200px;
+    margin-bottom: 35px;
+}
+
+#activtrax-login-box.activtrax-tall img.activtrax-mpftext {
+	padding: 0;
+	margin: 10px 7px 7px 0;
+	float: right;
+}
+
+#activtrax-login-box.activtrax-tall label {
+	display: block;
+	float: left;
+	width: 75px;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+#activtrax-login-box.activtrax-tall input {
+	display: block;
+	float: left;
+}
+
+#activtrax-login-box.activtrax-tall label.activtrax-labeltext {
+	padding: 0;
+	margin: 7px 3px 0 0;
+	font-size: 11px;
+}
+
+#activtrax-login-box.activtrax-tall input.activtrax-text {
+	padding: 2px 3px 2px 3px;
+	margin: 3px 0 3px 0;
+    margin-left: 7px;
+	height: 26px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #CCC;
+}
+
+#activtrax-login-box.activtrax-tall input.activtrax-submit {
+	margin: 3px 0 0 77px;
+	color: #636466;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+#activtrax-login-box.activtrax-tall p.activtrax-forgotlogin {
+	padding: 0;
+	margin: 8px 0 0 5px;
+	float: left;
+	font-size: 10px !important;
+}
+
+#activtrax-login-box.activtrax-tall img.activtrax-poweredby {
+	padding: 0;
+	margin: 14px 10px 0 0;
+	float: right;
+}
+
+#activtrax-login-box p.activtrax-forgotlogin a { color: #636466; }
+#activtrax-login-box p.activtrax-forgotlogin a:hover { color: #00aeef; }
+
+#activtrax-login-box a img.activtrax-poweredby {
+	border: 0;
+}

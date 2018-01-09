@@ -1,0 +1,2406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4054609-47C8-40ED-9B17-74084D2A38CE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YPortal.Web</RootNamespace>
+    <AssemblyName>YPortal.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\y-portal.Solution\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BetterImageProcessorQuantization">
+      <HintPath>reference\BetterImageProcessorQuantization.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Data">
+      <HintPath>..\y-portal.Solution\packages\FSharp.Data.2.0.7\lib\net40\FSharp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.1.9.0\lib\net40\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Analytics.v3">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.Analytics.v3.1.9.0.1080\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Analytics.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.Auth.1.9.0\lib\net40\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.Auth.1.9.0\lib\net40\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.Core.1.9.0\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices">
+      <HintPath>..\y-portal.Solution\packages\Google.Apis.1.9.0\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\y-portal.Solution\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\y-portal.Solution\packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="prismic, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\y-portal.Solution\packages\prismic.1.1.2\lib\net40\prismic.dll</HintPath>
+    </Reference>
+    <Reference Include="prismic.extensions, Version=1.0.5434.31178, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\y-portal.Solution\packages\prismic.1.1.2\lib\net40\prismic.extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.1.1.9\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Net.Http.2.2.22\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Net.Http.2.2.22\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\y-portal.Solution\packages\Microsoft.AspNet.WebApi.Client.4.1.0-alpha-120809\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Net.Http.2.2.22\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Net.Http.2.2.22\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\y-portal.Solution\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\y-portal.Solution\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\y-portal.Solution\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\y-portal.Solution\packages\Zlib.Portable.1.10.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Api_Services\AlertController.cs" />
+    <Compile Include="Api_Services\BlastController.cs" />
+    <Compile Include="Api_Services\CampaignController.cs" />
+    <Compile Include="Api_Services\ContactController.cs" />
+    <Compile Include="Api_Services\DashboardController.cs" />
+    <Compile Include="Api_Services\FileUploaderController.cs" />
+    <Compile Include="Api_Services\GoogleAnalyticController.cs" />
+    <Compile Include="Api_Services\InterestController.cs" />
+    <Compile Include="Api_Services\ProspectController.cs" />
+    <Compile Include="Api_Services\LocationController.cs" />
+    <Compile Include="Api_Services\SchedulerController.cs" />
+    <Compile Include="App_Logic\Business Entities\BasicCampaign.cs" />
+    <Compile Include="App_Logic\Business Entities\BlastDataOverview.cs" />
+    <Compile Include="App_Logic\Business Entities\EmailOverview.cs" />
+    <Compile Include="App_Logic\Business Entities\EmailTotal.cs" />
+    <Compile Include="App_Logic\Business Entities\GACampaignSetting.cs" />
+    <Compile Include="App_Logic\Business Entities\ProspectDetails.cs" />
+    <Compile Include="App_Logic\Business Entities\TouchOverview.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\BlastBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\BlastBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\CampaignBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\CampaignBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\LandingPageProspectBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\LandingPageProspectBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Common.cs" />
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\AudienceOverviewEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\ContentOverviewEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\EventOverviewEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\GoogleAnalyticsEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\Helper\GAnalyticParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\Helper\GASetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\InPageAnalyticEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\OverViewEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\ReferralOverviewEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiClass\VisitorsOverviewQueryEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\Connector\GoogleAnalyticConnector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\AudienceOverviewQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\ContentOverviewQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\DeviceOverViewQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\EventOverviewQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\GoogleAnalyticsQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\InPageAnalyticOverview.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\ReferrersOverview.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\GaApi\VisitorsOverviewQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\UiClass\ContentStat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\UiClass\EventStat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\UiClass\GetData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\UiClass\SiteStat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\GAnalyticsRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\AnalyticsV3\Utilities\EnumSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\Basic Helpers\CsvUtility.cs" />
+    <Compile Include="App_Logic\Helpers\Basic Helpers\MessageFormatter.cs" />
+    <Compile Include="App_Logic\Helpers\Basic Helpers\MessageHelpers.cs" />
+    <Compile Include="App_Logic\Helpers\ImageHelpers\ImageContainer.cs" />
+    <Compile Include="App_Logic\Helpers\ImageHelpers\ImageDimension.cs" />
+    <Compile Include="App_Logic\Helpers\ImageHelpers\ImageHelper.cs" />
+    <Compile Include="App_Logic\Helpers\ImageHelpers\ImageMessage.cs" />
+    <Compile Include="App_Logic\Helpers\ImageHelpers\ImageResizer.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\MemoryCache.cs" />
+    <Compile Include="App_Logic\Helpers\InputValidationHelpers\InputValidationHelper.cs" />
+    <Compile Include="App_Logic\Helpers\Xml-Helpers\XmlHelper.cs" />
+    <Compile Include="centerimprovements\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="centerimprovements\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="centerimprovements\hidden.aspx.cs">
+      <DependentUpon>hidden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="centerimprovements\hidden.aspx.designer.cs">
+      <DependentUpon>hidden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HttpUtils.cs" />
+    <Compile Include="footer\annualreports.aspx.cs">
+      <DependentUpon>annualreports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\annualreports.aspx.designer.cs">
+      <DependentUpon>annualreports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\strategicplan.aspx.cs">
+      <DependentUpon>strategicplan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\strategicplan.aspx.designer.cs">
+      <DependentUpon>strategicplan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\volunteer-content.aspx.cs">
+      <DependentUpon>volunteer-content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\volunteer-content.aspx.designer.cs">
+      <DependentUpon>volunteer-content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="monarchglobal\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="monarchglobal\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="privacy-policy.aspx.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="privacy-policy.aspx.designer.cs">
+      <DependentUpon>privacy-policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\Data\MediaContainer.cs" />
+    <Compile Include="User_Control\Data\MetaYCont.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\Types\ContentfulExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\MenuElement.cs" />
+    <Compile Include="App_Code\Types\YCarouselFormatter.cs" />
+    <Compile Include="App_Code\Types\YMenu2.cs" />
+    <Compile Include="App_Code\Types\YSchedule.cs" />
+    <Compile Include="App_Code\Types\YSiteMapFormatter.cs" />
+    <Compile Include="App_Resources\YContent-Default.Master.designer.cs">
+      <DependentUpon>YContent-Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YBaseUC.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDCarouselControlV2.ascx.cs">
+      <DependentUpon>YDCarouselControlV2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDCarouselControlV2.ascx.designer.cs">
+      <DependentUpon>YDCarouselControlV2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YDCarouselInfoV2.ascx.cs">
+      <DependentUpon>YDCarouselInfoV2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDCarouselInfoV2.ascx.designer.cs">
+      <DependentUpon>YDCarouselInfoV2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YDMenuControlV2.ascx.cs">
+      <DependentUpon>YDMenuControlV2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDMenuControlV2.ascx.designer.cs">
+      <DependentUpon>YDMenuControlV2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YDPageContainerImage.ascx.cs">
+      <DependentUpon>YDPageContainerImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDPageContainerImage.ascx.designer.cs">
+      <DependentUpon>YDPageContainerImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YDSiteMapControlV2.ascx.cs">
+      <DependentUpon>YDSiteMapControlV2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDSiteMapControlV2.ascx.designer.cs">
+      <DependentUpon>YDSiteMapControlV2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YGenericControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\Types\YMenuFormatter.cs" />
+    <Compile Include="App_Code\Types\YSubMenuFormatter.cs" />
+    <Compile Include="App_Code\Types\YDTabFormatter.cs" />
+    <Compile Include="User_Control\YDTabControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Logic\Business Entities\Business Entities.cs">
+      <DependentUpon>Business Entities.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\AdminUserBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\AdminUserBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\AppSettingBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\AppSettingBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\Business Logic Layer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\ContactBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\InterestBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Business Logic Layer\LocationBLL.Custom.cs" />
+    <Compile Include="App_Logic\Business Logic Layer\LocationBLL.Generated.cs">
+      <DependentUpon>Business Logic Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Data Access Layer\Data Access Layer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Data Access Layer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Entity Model\DatabaseContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\Helpers\Cross Cutting Concerns\ExceptionManager.cs" />
+    <Compile Include="App_Logic\Helpers\Cross Cutting Concerns\Logger.cs" />
+    <Compile Include="App_Logic\Helpers\Data Access Helpers\App_Exceptions.cs" />
+    <Compile Include="App_Logic\Helpers\Data Access Helpers\DynamicQueryable.cs" />
+    <Compile Include="App_Logic\Helpers\Data Access Helpers\BusinessEntitiesHelper.cs" />
+    <Compile Include="App_Logic\Helpers\Data Access Helpers\NullAndEmptyValueExtension.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\CookieManager.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\Emailer.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\HelperUtility.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\SessionManager.cs" />
+    <Compile Include="App_Logic\Helpers\Infrastructure Helpers\SiteSettings.cs" />
+    <Compile Include="App_Resources\admin.master.cs">
+      <DependentUpon>admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Resources\admin.master.designer.cs">
+      <DependentUpon>admin.master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Resources\default.Master.cs">
+      <DependentUpon>default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Resources\default.Master.designer.cs">
+      <DependentUpon>default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="common-page-layout.aspx.cs">
+      <DependentUpon>common-page-layout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common-page-layout.aspx.designer.cs">
+      <DependentUpon>common-page-layout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error-page.aspx.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error-page.aspx.designer.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\beverly-landis-hidden-bio.aspx.cs">
+      <DependentUpon>beverly-landis-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\beverly-landis-hidden-bio.aspx.designer.cs">
+      <DependentUpon>beverly-landis-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\billinginquiries.aspx.cs">
+      <DependentUpon>billinginquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\billinginquiries.aspx.designer.cs">
+      <DependentUpon>billinginquiries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\capitalcampaigns.aspx.cs">
+      <DependentUpon>capitalcampaigns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="footer\capitalcampaigns.aspx.designer.cs">
+      <DependentUpon>capitalcampaigns.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="footer\christine-ader-soto-hidden-bio.aspx.cs">
+      <DependentUpon>christine-ader-soto-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\christine-ader-soto-hidden-bio.aspx.designer.cs">
+      <DependentUpon>christine-ader-soto-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\employment.aspx.cs">
+      <DependentUpon>employment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\employment.aspx.designer.cs">
+      <DependentUpon>employment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\eric-t-williams-hidden-bio.aspx.cs">
+      <DependentUpon>eric-t-williams-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\eric-t-williams-hidden-bio.aspx.designer.cs">
+      <DependentUpon>eric-t-williams-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\financialassistance.aspx.cs">
+      <DependentUpon>financialassistance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\financialassistance.aspx.designer.cs">
+      <DependentUpon>financialassistance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\jeff-sprinkle-hidden-bio.aspx.cs">
+      <DependentUpon>jeff-sprinkle-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\jeff-sprinkle-hidden-bio.aspx.designer.cs">
+      <DependentUpon>jeff-sprinkle-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\john-k-hoey-hidden-bio.aspx.cs">
+      <DependentUpon>john-k-hoey-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\john-k-hoey-hidden-bio.aspx.designer.cs">
+      <DependentUpon>john-k-hoey-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\leadership-new.aspx.cs">
+      <DependentUpon>leadership-new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\leadership-new.aspx.designer.cs">
+      <DependentUpon>leadership-new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\leadership.aspx.cs">
+      <DependentUpon>leadership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\leadership.aspx.designer.cs">
+      <DependentUpon>leadership.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\mediacenter.aspx.cs">
+      <DependentUpon>mediacenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\mediacenter.aspx.designer.cs">
+      <DependentUpon>mediacenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\michelle-becote-jackson-hidden-bio.aspx.cs">
+      <DependentUpon>michelle-becote-jackson-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\michelle-becote-jackson-hidden-bio.aspx.designer.cs">
+      <DependentUpon>michelle-becote-jackson-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\partnershipopportunities.aspx.cs">
+      <DependentUpon>partnershipopportunities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\partnershipopportunities.aspx.designer.cs">
+      <DependentUpon>partnershipopportunities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\privacypolicy.aspx.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\privacypolicy.aspx.designer.cs">
+      <DependentUpon>privacypolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\robert-j-brosmer-hidden-bio.aspx.cs">
+      <DependentUpon>robert-j-brosmer-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\robert-j-brosmer-hidden-bio.aspx.designer.cs">
+      <DependentUpon>robert-j-brosmer-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\sara-i-milstein-hidden-bio.aspx.cs">
+      <DependentUpon>sara-i-milstein-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\sara-i-milstein-hidden-bio.aspx.designer.cs">
+      <DependentUpon>sara-i-milstein-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\sherrie-l-rovnan-hidden-bio.aspx.cs">
+      <DependentUpon>sherrie-l-rovnan-hidden-bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\sherrie-l-rovnan-hidden-bio.aspx.designer.cs">
+      <DependentUpon>sherrie-l-rovnan-hidden-bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\sitemap.aspx.cs">
+      <DependentUpon>sitemap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\sitemap.aspx.designer.cs">
+      <DependentUpon>sitemap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\sponsors.aspx.cs">
+      <DependentUpon>sponsors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\sponsors.aspx.designer.cs">
+      <DependentUpon>sponsors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\volunteer-log-in.aspx.cs">
+      <DependentUpon>volunteer-log-in.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\volunteer-log-in.aspx.designer.cs">
+      <DependentUpon>volunteer-log-in.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer\volunteerlogin.aspx.cs">
+      <DependentUpon>volunteerlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer\volunteerlogin.aspx.designer.cs">
+      <DependentUpon>volunteerlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="innerpage.aspx.cs">
+      <DependentUpon>innerpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="innerpage.aspx.designer.cs">
+      <DependentUpon>innerpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="location-specific-page-personal-trainer-tab.aspx.cs">
+      <DependentUpon>location-specific-page-personal-trainer-tab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="location-specific-page-personal-trainer-tab.aspx.designer.cs">
+      <DependentUpon>location-specific-page-personal-trainer-tab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="location-specific.aspx.cs">
+      <DependentUpon>location-specific.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="location-specific.aspx.designer.cs">
+      <DependentUpon>location-specific.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="no-cookie.aspx.cs">
+      <DependentUpon>no-cookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="no-cookie.aspx.designer.cs">
+      <DependentUpon>no-cookie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="no-javascript.aspx.cs">
+      <DependentUpon>no-javascript.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="no-javascript.aspx.designer.cs">
+      <DependentUpon>no-javascript.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Resources\messages\error-page.aspx.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Resources\messages\error-page.aspx.designer.cs">
+      <DependentUpon>error-page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="schedule.aspx.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="schedule.aspx.designer.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YDMenuSectionUC.ascx.cs">
+      <DependentUpon>YDMenuSectionUC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YDMenuSectionUC.ascx.designer.cs">
+      <DependentUpon>YDMenuSectionUC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\YGenericTabControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YPageImageSlide.ascx.cs">
+      <DependentUpon>YPageImageSlide.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Control\YPageImageSlide.ascx.designer.cs">
+      <DependentUpon>YPageImageSlide.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="volunteer-login02.aspx.cs">
+      <DependentUpon>volunteer-login02.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="volunteer-login02.aspx.designer.cs">
+      <DependentUpon>volunteer-login02.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Y-Bio.aspx.cs">
+      <DependentUpon>Y-Bio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Y-Bio.aspx.designer.cs">
+      <DependentUpon>Y-Bio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Y-Info.aspx.cs">
+      <DependentUpon>Y-Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Y-Info.aspx.designer.cs">
+      <DependentUpon>Y-Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="y-preschool-form.aspx.cs">
+      <DependentUpon>y-preschool-form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="y-preschool-form.aspx.designer.cs">
+      <DependentUpon>y-preschool-form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Y-Schedule-Print-Friendly.aspx.cs">
+      <DependentUpon>Y-Schedule-Print-Friendly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Y-Schedule-Print-Friendly.aspx.designer.cs">
+      <DependentUpon>Y-Schedule-Print-Friendly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Y-Schedule.aspx.cs">
+      <DependentUpon>Y-Schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Y-Schedule.aspx.designer.cs">
+      <DependentUpon>Y-Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YBasePage.aspx.cs">
+      <DependentUpon>YBasePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YBasePage.aspx.designer.cs">
+      <DependentUpon>YBasePage.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\EmailThumbImage\" />
+    <Folder Include="App_Code\Controls\" />
+    <Folder Include="App_Code\Templates\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="ExportFiles\" />
+    <Folder Include="logs\" />
+    <Folder Include="User_Control\Handlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\analytics-all-traffic.html" />
+    <Content Include="Admin\analytics-all-trafic.js" />
+    <Content Include="Admin\analytics-geo-location.html" />
+    <Content Include="Admin\analytics-geo-location.js" />
+    <Content Include="Admin\analytics-mobile-overview.html" />
+    <Content Include="Admin\analytics-mobile-overview.js" />
+    <Content Include="Admin\analytics-top-visited-pages.html" />
+    <Content Include="Admin\analytics-top-visited-pages.js" />
+    <Content Include="Admin\analytics.html" />
+    <Content Include="Admin\analytics.js" />
+    <Content Include="Admin\blast-data-edit.html" />
+    <Content Include="Admin\blast-data-edit.js" />
+    <Content Include="Admin\blast-overview.html" />
+    <Content Include="Admin\blast-overview.js" />
+    <Content Include="Admin\membership-analytics-pageview.html" />
+    <Content Include="Admin\membership-analytics-pageview.js" />
+    <Content Include="Admin\membership-overview.js" />
+    <Content Include="Admin\default.aspx" />
+    <Content Include="Admin\default.js" />
+    <Content Include="Admin\image-dimension.xml" />
+    <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\membership-overview.html" />
+    <Content Include="Admin\ng-animate.css" />
+    <Content Include="Admin\no-image.jpg" />
+    <Content Include="Admin\overview.html" />
+    <Content Include="Admin\touch.html" />
+    <Content Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiCertificate\Readme.txt" />
+    <Content Include="App_Resources\client-scripts\app\YSchedulePrintFriendly.js" />
+    <Content Include="App_Style\css\activtrax.css" />
+    <Content Include="App_Resources\App_Style\css\admin.css" />
+    <Content Include="App_Resources\App_Style\css\default.css" />
+    <Content Include="App_Resources\App_Style\images\activtrax\activtrax-my-personal-fitness.png" />
+    <Content Include="App_Resources\App_Style\images\activtrax\activtrax-powered-by-logo.png" />
+    <Content Include="App_Resources\App_Style\images\activtrax\log-in.gif" />
+    <Content Include="App_Resources\App_Style\images\branding\branding-big-01.png" />
+    <Content Include="App_Resources\App_Style\images\branding\small-branding-sada.png" />
+    <Content Include="App_Resources\App_Style\images\loader.gif" />
+    <Content Include="App_Resources\client-scripts\bootstrap\bootstrap-datepicker.js" />
+    <Content Include="App_Resources\client-scripts\bootstrap\bootstrap.js" />
+    <Content Include="App_Resources\client-scripts\bootstrap\datepicker.css" />
+    <Content Include="App_Resources\client-scripts\bootstrap\html5shiv.js" />
+    <Content Include="App_Resources\client-scripts\bootstrap\respond.js" />
+    <Content Include="App_Resources\client-scripts\date-format.js" />
+    <Content Include="App_Resources\client-scripts\datepicker\css\datepicker.css" />
+    <Content Include="App_Resources\client-scripts\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular-animate.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular-route.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular.v1.2.min.js" />
+    <Content Include="App_Resources\client-scripts\moment.js" />
+    <Content Include="App_Style\css\font-awesome.css" />
+    <Content Include="App_Resources\App_Style\css\ie8.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_debug.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_debug.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_rec.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_rec.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_rec_debug.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhxscheduler_mobile_rec_debug.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\add.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\arrow_left.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\arrow_right.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\checkbox.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\clock.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\event.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\event_focus.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\noevents.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\radio_off.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\radio_on.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\wm_dhtmlxscheduler.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\dhtmlxcalendar.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\dhtmlxcalendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\ext\dhtmlxcalendar_double.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\arrow_left_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\arrow_right_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\bg_days.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_skyblue\bg_main.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\arrow_down.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\arrow_up.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\bg_dayofweek.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\bg_main.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\bg_weeknum_i.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\bg_weeknum_s.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_selected.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_today.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_triangle.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_wn_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\cell_wn_selected.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_terrace\clock.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\arrow_left_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\arrow_right_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\bg_days.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_dhx_web\bg_main.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\arrow_left_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\arrow_right_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\bg_days.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\imgs\dhtmlxcalendar_omega\bg_main.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\skins\dhtmlxcalendar_dhx_skyblue.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\skins\dhtmlxcalendar_dhx_terrace.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\skins\dhtmlxcalendar_dhx_web.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\codebase\skins\dhtmlxcalendar_omega.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\readme.txt" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\sources\dhtmlxcalendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\sources\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCalendar\sources\ext\dhtmlxcalendar_double.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\dhtmlxcombo.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\dhtmlxcombo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\ext\dhtmlxcombo_extra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\ext\dhtmlxcombo_group.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\ext\dhtmlxcombo_whp.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\bg_selection.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\blank.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dhx_black.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dhx_blue.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dhx_skyblue.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dhx_terrace.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dhx_web.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dis_dhx_skyblue.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dis_dhx_terrace.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\codebase\imgs\combo_select_dis_dhx_web.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\readme.txt" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\sources\dhtmlxcombo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\sources\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\sources\ext\dhtmlxcombo_extra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\sources\ext\dhtmlxcombo_group.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxCombo\sources\ext\dhtmlxcombo_whp.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\dhtmlxform.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_backup.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_dyn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_hide_on_disable.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_btn2state.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_calendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_colorpicker.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_combo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_container.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_editor.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhtmlxform_item_upload.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\dhxupload.xap" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\swfobject.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\ext\uploader.swf" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_skyblue\dhxform_btns.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_skyblue\dhxform_chbxrd.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_skyblue\dhxform_upload_buttons.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_skyblue\dhxform_upload_uploading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_terrace\dhxform_btns.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_terrace\dhxform_chbxrd.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_terrace\dhxform_upload_buttons.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_terrace\dhxform_upload_uploading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_web\dhxform_btns.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_web\dhxform_chbxrd.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_web\dhxform_upload_buttons.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\imgs\dhxform_dhx_web\dhxform_upload_uploading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\skins\dhtmlxform_dhx_skyblue.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\skins\dhtmlxform_dhx_terrace.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\codebase\skins\dhtmlxform_dhx_web.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\dhtmlxform.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_backup.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_dyn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_hide_on_disable.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_btn2state.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_calendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_colorpicker.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_combo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_container.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_editor.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhtmlxform_item_upload.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\dhxupload.xap" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\swfobject.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxForm\sources\ext\uploader.swf" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\calendar.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\calendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\calendar_init.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\event.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\img\callt.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\img\calrt.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\img\calx.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\license.txt" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\calendar\YAHOO.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxcommon_debug.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxgrid.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxgrid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxgridcell.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\dhtmlxgrid_skins.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_calc.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_3but.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_acheck.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_calck.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_calendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_clist.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_cntr.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_combo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_context.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_dec.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_dhxcalendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_grid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_limit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_link.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_liveedit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_mro.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_passw.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_ra_str.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_sub_row.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_time.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_tree.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\excells\dhtmlxgrid_excell_wbut.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_data.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_deprecated.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_drag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_export.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_fast.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_filter.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_form.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_group.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_hextra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_hmenu.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_hmenu.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_json.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_keymap_access.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_keymap_excel.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_keymap_extra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_markers.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_math.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_mcol.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_nxml.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_over.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_pgn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_pgn_bricks.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_pivot.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_post.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_rowspan.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_selection.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_splt.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_srnd.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_ssc.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_start.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_undo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlxgrid_validation.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlx_extdrag.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\ext\dhtmlx_extdrag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_left_abs.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_left_abs_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_left_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_right_abs.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_right_abs_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\ar_right_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\blanc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\blank.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\combo_select.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\combo_select_dhx_black.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\combo_select_dhx_blue.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\combo_select_dhx_skyblue.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\blanc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\blank.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\folder.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\leaf.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\line.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\line1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\line2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\line3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\line4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\minus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\plus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\sort_asc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\csh_bluebooks\sort_desc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_black\hdr.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_blue\hdr.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_skyblue\arrow.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_skyblue\asteriks.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_skyblue\rowselector.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_dhx_web\separator.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_glassy_blue\ftr.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhxgrid_glassy_blue\hdr.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dhx_simple_sep.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dyn_.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dyn_down.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\dyn_up.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\false.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\folder.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\green.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\header_bg.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\header_bg_60.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\blanc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\blank.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\book.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\books.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\books_cat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\cd.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\dvd.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\dvds.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\item_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\item_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\item_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\item_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\leaf.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\line.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\line1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\line2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\line3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\line4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\minus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\music.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\plus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\radio_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\radio_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\radio_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\radio_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\sort_asc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_books\sort_desc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\blanc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\blank.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\folder.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\item_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\item_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\item_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\item_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\leaf.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\line.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\line1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\line2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\line3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\line4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\minus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus2.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus3.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus4.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\plus5.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\radio_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\radio_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\radio_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\radio_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\sort_asc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\icons_greenfolders\sort_desc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\imageloaderror.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\item_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\item_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\item_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\item_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\leaf.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\minus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\plus.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\radio_chk0.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\radio_chk0_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\radio_chk1.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\radio_chk1_dis.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\red.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\results.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinA_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinB_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinC_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinC_top_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinC_top_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinD_bottom_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinD_bottom_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skinD_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skin_light_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\skin_modern_header.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\sky_blue_grid.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\sky_blue_sel.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\sky_blue_sel2.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\sort_asc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\sort_desc.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\imgs\true.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\skins\dhtmlxgrid_dhx_black.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\skins\dhtmlxgrid_dhx_blue.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\skins\dhtmlxgrid_dhx_skyblue.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\skins\dhtmlxgrid_dhx_terrace.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\codebase\skins\dhtmlxgrid_dhx_web.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\calendar\license.txt" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\codebase_treegrid.xml" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\dhtmlxgrid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\dhtmlxgridcell.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_3but.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_acheck.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_calck.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_calendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_clist.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_cntr.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_combo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_context.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_dec.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_dhxcalendar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_grid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_limit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_link.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_liveedit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_mro.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_passw.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_ra_str.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_sub_row.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_time.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_tree.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\excells\dhtmlxgrid_excell_wbut.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_data.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_drag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_export.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_fast.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_filter.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_form.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_group.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_hextra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_hmenu.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_json.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_keymap_access.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_keymap_excel.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_keymap_extra.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_markers.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_math.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_mcol.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_nxml.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_over.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_pgn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_pivot.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_post.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_rowspan.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_selection.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_splt.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_srnd.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_ssc.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_start.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_undo.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlxgrid_validation.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxGrid\sources\ext\dhtmlx_extdrag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\dhtmlxpopup.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\arrow_bottom.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\arrow_top.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\list_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_skyblue\list_sep.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_terrace\arrow_bottom.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_terrace\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_terrace\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_terrace\arrow_top.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\arrow_bottom.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\arrow_left.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\arrow_right.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\arrow_top.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\dhxacc_bg_popup.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\list_hover.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\imgs\dhxpopup_dhx_web\list_sep.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\skins\dhtmlxpopup_dhx_skyblue.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\skins\dhtmlxpopup_dhx_terrace.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\codebase\skins\dhtmlxpopup_dhx_web.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\sources\dhtmlxcommon.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxPopup\sources\dhtmlxpopup.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhtmlxscheduler.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhtmlxscheduler.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhtmlxscheduler_classic.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\dhtmlxscheduler_glossy.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_active_links.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_agenda_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_all_timed.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_collision.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_container_autoresize.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_cookie.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_editors.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_expand.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_grid_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_html_templates.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_key_nav.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_limit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_map_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_minical.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_multiselect.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_multisource.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_mvc.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_offline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_outerdrag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_pdf.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_quick_info.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_readonly.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_recurring.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_serialize.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_timeline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_tooltip.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_treetimeline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_units.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_url.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_week_agenda.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\ext\dhtmlxscheduler_year_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\buttons.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\clock_big.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\clock_small.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\controls.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\globe.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\images.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\loading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs\resize_dots.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\controls.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_dhx_terrace\resizing.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\blue_tab.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\blue_tab_wide.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\buttons.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\clock_big.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\clock_small.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\controlls5.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\event-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\left-separator.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\left-time-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\lightbox.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\loading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\move.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\multi-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\second-top-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\top-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\top-separator.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\white_tab.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\imgs_glossy\white_tab_wide.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\api.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\dhtmlxscheduler_flat.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\add.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\arrow_left.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\arrow_right.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\checkbox.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\clock.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\event.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\event_focus.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\noevents.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\radio_off.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\radio_on.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\wm_dhtmlxscheduler_glossy.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\dhtmlxscheduler.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\dhtmlxscheduler.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\dhtmlxscheduler_classic.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\dhtmlxscheduler_glossy.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_active_links.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_agenda_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_all_timed.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_collision.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_container_autoresize.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_cookie.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_editors.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_expand.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_grid_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_html_templates.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_key_nav.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_limit.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_map_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_minical.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_multiselect.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_multisource.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_mvc.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_offline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_outerdrag.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_pdf.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_quick_info.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_readonly.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_recurring.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_serialize.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_timeline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_tooltip.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_treetimeline.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_units.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_url.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_week_agenda.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\ext\dhtmlxscheduler_year_view.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\buttons.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\clock_big.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\clock_small.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\controls.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\images.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\loading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs\resize_dots.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\controls.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_dhx_terrace\resizing.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\blue_tab.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\blue_tab_wide.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\buttons.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\but_repeat.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\calendar.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\clock_big.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\clock_small.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\collapse_expand_icon.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\controlls5.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\databg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\databg_now.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\event-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\export_ical.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\export_pdf.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\icon.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\left-separator.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\left-time-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\lightbox.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\loading.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\move.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\multi-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\second-top-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\top-days-bg.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\top-separator.gif" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\white_tab.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\imgs_glossy\white_tab_wide.png" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_ar.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_be.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_ca.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_cn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_cs.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_da.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_de.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_el.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_es.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_fi.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_fr.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_he.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_hu.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_id.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_it.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_jp.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_nb.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_nl.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_no.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_pl.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_pt.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_ro.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_ru.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_si.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_sk.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_sv.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_tr.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\locale_ua.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_be.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_cn.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_cs.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_da.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_de.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_el.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_es.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_fi.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_fr.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_it.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_nb.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_nl.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_pl.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_pt.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_ro.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_ru.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_sk.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_sv.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\locale_recurring_ua.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_be.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_cn.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_de.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_el.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_es.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_fr.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_it.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_nl.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_ro.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_ru.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\sources\locale\recurring\repeat_template_sk.html" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\codebase\dhtmlxtreegrid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\codebase\ext\dhtmlxtreegrid_filter.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\codebase\ext\dhtmlxtreegrid_lines.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\codebase\ext\dhtmlxtreegrid_property.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\codebase\ext\dhtmlxtreegrid_property.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\sources\dhtmlxtreegrid.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\sources\ext\dhtmlxtreegrid_filter.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\sources\ext\dhtmlxtreegrid_lines.js" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\sources\ext\dhtmlxtreegrid_property.css" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxTreeGrid\sources\ext\dhtmlxtreegrid_property.js" />
+    <Content Include="App_Resources\App_Style\css\bootstrap.css" />
+    <Content Include="App_Resources\App_Style\css\fonts\7b9b00a4-5d07-4a16-b0a3-6377d28e859e.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\91d0f127-dfbc-4375-832a-4f4c1e56a078.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\c4401a37-0504-4fa4-b93d-01ce84973336.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-light-webfont.svg" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-regular-webfont.svg" />
+    <Content Include="App_Resources\App_Style\css\layout.css" />
+    <Content Include="App_Resources\App_Style\css\text.css" />
+    <Content Include="App_Resources\App_Style\images\banner\content\content-img-01.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user--02.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user--03.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user--04.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user--05.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user--06.png" />
+    <Content Include="App_Resources\App_Style\images\banner\content\user-01.png" />
+    <Content Include="App_Resources\App_Style\images\banner\home-banner\home-banner-bg.png" />
+    <Content Include="App_Resources\App_Style\images\banner\home-banner\home-banner.png" />
+    <Content Include="App_Resources\App_Style\images\banner\inner-page-banner\home-banner-01.png" />
+    <Content Include="App_Resources\App_Style\images\banner\inner-page-banner\indicator-01.png" />
+    <Content Include="App_Resources\App_Style\images\banner\inner-page-banner\indicator-02.png" />
+    <Content Include="App_Resources\App_Style\images\banner\inner-page-banner\inner-banner-bg.png" />
+    <Content Include="App_Resources\App_Style\images\banner\side-bar\sidebar-banner-01.png" />
+    <Content Include="App_Resources\App_Style\images\banner\side-bar\sidebar-banner.png" />
+    <Content Include="App_Resources\App_Style\images\branding\small-branding.png" />
+    <Content Include="App_Resources\App_Style\images\branding\y-of-central-md.png" />
+    <Content Include="App_Resources\App_Style\images\dux-header-bg.png" />
+    <Content Include="App_Resources\App_Style\images\footer-list-arrow.png" />
+    <Content Include="App_Resources\App_Style\images\list-arrow.png" />
+    <Content Include="App_Resources\App_Style\images\tab\home-tab-icon\at-the-y-now.png" />
+    <Content Include="App_Resources\App_Style\images\tab\home-tab-icon\before-after-schools.png" />
+    <Content Include="App_Resources\App_Style\images\tab\home-tab-icon\camps.png" />
+    <Content Include="App_Resources\App_Style\images\tab\home-tab-icon\membership.png" />
+    <Content Include="App_Resources\App_Style\images\tab\home-tab-icon\preschools.png" />
+    <Content Include="App_Resources\App_Style\images\top-nav-bg.png" />
+    <Content Include="App_Resources\App_Style\js\bootstrap.js" />
+    <Content Include="App_Resources\App_Style\js\html5shiv.js" />
+    <Content Include="App_Resources\App_Style\js\respond.js" />
+    <Content Include="App_Resources\client-scripts\app\contact-us.js" />
+    <Content Include="App_Resources\client-scripts\app\default.master.js" />
+    <Content Include="App_Resources\client-scripts\app\ng.yPortal.js" />
+    <Content Include="App_Resources\client-scripts\app\YAlerts.js" />
+    <Content Include="App_Resources\client-scripts\app\YScheduler.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Resources\client-scripts\app\YScheduler.min.js">
+      <DependentUpon>YScheduler.js</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Resources\client-scripts\framework\angular\angular.v1.0.7.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular.v1.2.26.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\html5.js" />
+    <Content Include="App_Resources\client-scripts\framework\angular\json2.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\jquery-multiselect\jquery.multiselect.css" />
+    <Content Include="App_Resources\client-scripts\framework\jquery-multiselect\jquery.multiselect.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\jquery.maskedinput.js" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\animated-overlay.gif" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-icons_222222_256x240.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-icons_454545_256x240.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-icons_888888_256x240.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\jquery-1.11.0.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\jquery-ui.css" />
+    <Content Include="App_Resources\client-scripts\framework\jQuery\jquery-ui.min.js" />
+    <Content Include="App_Resources\client-scripts\framework\knockoutjs\knockout-2.3.0.debug.js" />
+    <Content Include="App_Resources\client-scripts\framework\knockoutjs\knockout-2.3.0.js" />
+    <Content Include="App_Resources\client-scripts\framework\knockoutjs\ko-execute-on-enter.js" />
+    <Content Include="App_Resources\client-scripts\framework\knockoutjs\ko-protected-observable.js" />
+    <Content Include="App_Resources\client-scripts\utilities\browser_check.js" />
+    <Content Include="App_Resources\client-scripts\utilities\CookieManager.js" />
+    <Content Include="App_Resources\client-scripts\utilities\cookie_check.js" />
+    <Content Include="App_Resources\client-scripts\utilities\javascript_check.js" />
+    <Content Include="App_Resources\client-scripts\utilities\moment-with-langs.js" />
+    <Content Include="App_Resources\client-scripts\utilities\moment-with-langs.min.js" />
+    <Content Include="App_Resources\client-scripts\utilities\moment.js" />
+    <Content Include="App_Resources\client-scripts\utilities\moment.min.js" />
+    <Content Include="App_Resources\Configuration\SiteMenu.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Resources\images\favicon.ico" />
+    <Content Include="App_Style\css\admin.css" />
+    <Content Include="App_Style\css\default.css" />
+    <Content Include="App_Style\css\fonts\7b9b00a4-5d07-4a16-b0a3-6377d28e859e.svg" />
+    <Content Include="App_Style\css\fonts\91d0f127-dfbc-4375-832a-4f4c1e56a078.svg" />
+    <Content Include="App_Style\css\fonts\c4401a37-0504-4fa4-b93d-01ce84973336.svg" />
+    <Content Include="App_Style\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="App_Style\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App_Style\css\fonts\opensans-light-webfont.svg" />
+    <Content Include="App_Style\css\fonts\opensans-regular-webfont.svg" />
+    <Content Include="App_Style\css\ie8.css" />
+    <Content Include="App_Style\css\layout.css" />
+    <Content Include="App_Style\css\text.css" />
+    <Content Include="App_Style\images\alert.png" />
+    <Content Include="App_Style\images\banner\assiciation-office\association-office.jpg" />
+    <Content Include="App_Style\images\banner\before-and-after-school-programs\before-and-after-school-program.png" />
+    <Content Include="App_Style\images\banner\before-and-after-school-programs\dropin-workshops.png" />
+    <Content Include="App_Style\images\banner\before-and-after-school-programs\how-to-register.png" />
+    <Content Include="App_Style\images\banner\before-and-after-school-programs\stem.png" />
+    <Content Include="App_Style\images\banner\before-and-after-school-programs\youth-and-government.png" />
+    <Content Include="App_Style\images\banner\camps\general-information.jpg" />
+    <Content Include="App_Style\images\banner\camps\general-information.png" />
+    <Content Include="App_Style\images\banner\camps\locations.png" />
+    <Content Include="App_Style\images\banner\camps\option-and-fees.png" />
+    <Content Include="App_Style\images\banner\camps\overview-banner.png" />
+    <Content Include="App_Style\images\banner\camps\overview.png" />
+    <Content Include="App_Style\images\banner\camps\register-now.png" />
+    <Content Include="App_Style\images\banner\camps\themes-trips-and-events.png" />
+    <Content Include="App_Style\images\banner\content\content-img-01.png" />
+    <Content Include="App_Style\images\banner\content\user--02.png" />
+    <Content Include="App_Style\images\banner\content\user--03.png" />
+    <Content Include="App_Style\images\banner\content\user--04.png" />
+    <Content Include="App_Style\images\banner\content\user--05.png" />
+    <Content Include="App_Style\images\banner\content\user--06.png" />
+    <Content Include="App_Style\images\banner\content\user-01.png" />
+    <Content Include="App_Style\images\banner\footer\BillingInquiries.jpg" />
+    <Content Include="App_Style\images\banner\footer\board-of-directors.png" />
+    <Content Include="App_Style\images\banner\footer\capital-campaign.png" />
+    <Content Include="App_Style\images\banner\footer\community-leadership.png" />
+    <Content Include="App_Style\images\banner\footer\CommunityLeadershipBoards.png" />
+    <Content Include="App_Style\images\banner\footer\contact-us.png" />
+    <Content Include="App_Style\images\banner\footer\employment.png" />
+    <Content Include="App_Style\images\banner\footer\executive-operating-team.png" />
+    <Content Include="App_Style\images\banner\footer\financial-assistance.png" />
+    <Content Include="App_Style\images\banner\footer\LeadershipBoardofDirectors.png" />
+    <Content Include="App_Style\images\banner\footer\MediaCenter.png" />
+    <Content Include="App_Style\images\banner\footer\senior-trademill.png" />
+    <Content Include="App_Style\images\banner\footer\volunteer-login.jpg" />
+    <Content Include="App_Style\images\banner\home-banner\banner-transparent-bg.png" />
+    <Content Include="App_Style\images\banner\home-banner\home-banner-02.png" />
+    <Content Include="App_Style\images\banner\home-banner\home-banner-bg.png" />
+    <Content Include="App_Style\images\banner\home-banner\home-banner.png" />
+    <Content Include="App_Style\images\banner\home\at-the-y-now.png" />
+    <Content Include="App_Style\images\banner\home\before-and-after-school-program.png" />
+    <Content Include="App_Style\images\banner\home\camp.png" />
+    <Content Include="App_Style\images\banner\home\membership.png" />
+    <Content Include="App_Style\images\banner\home\preschool.png" />
+    <Content Include="App_Style\images\banner\inner-page-banner\assistance.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\billing-inquiries.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\capital-campaigns.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\home-banner-01.png" />
+    <Content Include="App_Style\images\banner\inner-page-banner\indicator-01.png" />
+    <Content Include="App_Style\images\banner\inner-page-banner\indicator-02.png" />
+    <Content Include="App_Style\images\banner\inner-page-banner\inner-banner-bg.png" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\becky-zahn.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\beverly-landis.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\bob-brosmer.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\chrisadersoto.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\david-scheutz.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\david-zeiders.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\dawn-chrystal-wolf.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\derryck-fletcher.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\eric-somerville.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\ericwilliams.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\gailreich.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\jeff-sprinkle.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\jeremy-trimble.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\jill-black.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\johnhoey.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\lana-smith.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\mario-trescone.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\mel-brennan.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\michellebecoteJackson.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\phtYStaf.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\ruth-heltne.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\ryan-trexler.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\saramilstein.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\sherrie-rovnan.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\leadership\suzanne-green.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\privacy-policy.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\site-map.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\sponsor.jpg" />
+    <Content Include="App_Style\images\banner\inner-page-banner\y-partnerships.jpg" />
+    <Content Include="App_Style\images\banner\location\association-office.png" />
+    <Content Include="App_Style\images\banner\location\before-and-after-school-program\before-and-after-school-program.png" />
+    <Content Include="App_Style\images\banner\location\before-and-after-school-program\LocationBeforeandAfterschool.png" />
+    <Content Include="App_Style\images\banner\location\catonsville.png" />
+    <Content Include="App_Style\images\banner\location\dancel.png" />
+    <Content Include="App_Style\images\banner\location\druid-hill.png" />
+    <Content Include="App_Style\images\banner\location\dundalk.png" />
+    <Content Include="App_Style\images\banner\location\greater-annapolis.png" />
+    <Content Include="App_Style\images\banner\location\headstart.png" />
+    <Content Include="App_Style\images\banner\location\hills.png" />
+    <Content Include="App_Style\images\banner\location\LocationHeadStartBalt.png" />
+    <Content Include="App_Style\images\banner\location\OrkawaCenter.png" />
+    <Content Include="App_Style\images\banner\location\orokawa.png" />
+    <Content Include="App_Style\images\banner\location\parkville.png" />
+    <Content Include="App_Style\images\banner\location\perry-hall.png" />
+    <Content Include="App_Style\images\banner\location\PerryHallCenter.png" />
+    <Content Include="App_Style\images\banner\location\preschools\catonsville.png" />
+    <Content Include="App_Style\images\banner\location\preschools\chipmunk.png" />
+    <Content Include="App_Style\images\banner\location\preschools\owen-brown.png" />
+    <Content Include="App_Style\images\banner\location\preschools\riverside.png" />
+    <Content Include="App_Style\images\banner\location\preschools\tawson.png" />
+    <Content Include="App_Style\images\banner\location\preschools\towson-baltimore.png" />
+    <Content Include="App_Style\images\banner\location\preschools\weinberg.png" />
+    <Content Include="App_Style\images\banner\location\randallstown.png" />
+    <Content Include="App_Style\images\banner\location\RandallstownCenterSpecific.png" />
+    <Content Include="App_Style\images\banner\location\ward.png" />
+    <Content Include="App_Style\images\banner\location\weinberg.png" />
+    <Content Include="App_Style\images\banner\membership\benefits-and-feature.png" />
+    <Content Include="App_Style\images\banner\membership\how-to-become-a-member.png" />
+    <Content Include="App_Style\images\banner\membership\personal-training.png" />
+    <Content Include="App_Style\images\banner\membership\types-and-rates.png" />
+    <Content Include="App_Style\images\banner\our-mission\cause.png" />
+    <Content Include="App_Style\images\banner\our-mission\donation.png" />
+    <Content Include="App_Style\images\banner\our-mission\mentoring.png" />
+    <Content Include="App_Style\images\banner\our-mission\serving-at-risk-youth-and-family.png" />
+    <Content Include="App_Style\images\banner\our-mission\volunteering.png" />
+    <Content Include="App_Style\images\banner\personal-training\cancer-exercise-program.png" />
+    <Content Include="App_Style\images\banner\personal-training\fitlinxx-training-system.png" />
+    <Content Include="App_Style\images\banner\personal-training\how-to-get-started.png" />
+    <Content Include="App_Style\images\banner\personal-training\meet-our-trainers.png" />
+    <Content Include="App_Style\images\banner\personal-training\one-on-one-training.png" />
+    <Content Include="App_Style\images\banner\personal-training\small-group-training.png" />
+    <Content Include="App_Style\images\banner\preschool\headstart.png" />
+    <Content Include="App_Style\images\banner\preschool\how-to-enroll.png" />
+    <Content Include="App_Style\images\banner\preschool\preschool.png" />
+    <Content Include="App_Style\images\banner\side-bar\AttheYNow.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\AtTheYNowTabImage.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\BASE.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\CAMPS.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\Membership.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\Preschool.jpg" />
+    <Content Include="App_Style\images\banner\side-bar\sidebar-banner-01.png" />
+    <Content Include="App_Style\images\banner\side-bar\sidebar-banner.png" />
+    <Content Include="App_Style\images\banner\sports\adult-sports.png" />
+    <Content Include="App_Style\images\banner\sports\ProgramsYouthSports.png" />
+    <Content Include="App_Style\images\banner\sports\register-now.png" />
+    <Content Include="App_Style\images\banner\sports\summer-sports-clinic.png" />
+    <Content Include="App_Style\images\banner\sports\youth-sports.png" />
+    <Content Include="App_Style\images\banner\swim\register-now.png" />
+    <Content Include="App_Style\images\banner\swim\swim-lessions.png" />
+    <Content Include="App_Style\images\banner\swim\swim-summer-clinic.png" />
+    <Content Include="App_Style\images\banner\swim\swim-teams.png" />
+    <Content Include="App_Style\images\banner\swim\water-exercise.png" />
+    <Content Include="App_Style\images\banner\thumbnails\footer\board-of-directors.png" />
+    <Content Include="App_Style\images\banner\thumbnails\footer\community-leadership.png" />
+    <Content Include="App_Style\images\banner\thumbnails\footer\executive-operating-team.png" />
+    <Content Include="App_Style\images\banner\thumbnails\footer\financial-assistance.png" />
+    <Content Include="App_Style\images\banner\thumbnails\membership\benefits-and-features.png" />
+    <Content Include="App_Style\images\banner\thumbnails\membership\how-to-become-a-member.png" />
+    <Content Include="App_Style\images\banner\thumbnails\membership\personal-training.png" />
+    <Content Include="App_Style\images\banner\thumbnails\membership\type-and-rates.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\annual-report.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\cause.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\donation-at-work.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\mentoring.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\serving-at-risk-youth-and-families.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\strategic-plan.png" />
+    <Content Include="App_Style\images\banner\thumbnails\our-mission\volunteer.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\before-and-after-school-program\before-and-after-school-enrichment.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\before-and-after-school-program\dropin-workshops.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\before-and-after-school-program\how-to-register.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\before-and-after-school-program\stem.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\before-and-after-school-program\youth-and-goverment.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\general-info-and-forms.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\locations.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\option-and-fees.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\overview.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\register-now.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\camps\themes-trips-and-events.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\community-programs\serving-at-risk-youth-and-families.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\cancer-exercise-program.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\fitlinxx-training-program.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\how-to-get-started.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\meet-our-trainers.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\one-on-one-training.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\personal-training\small-group-training.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\preschool\headstart.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\preschool\how-to-enroll.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\preschool\preschool.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\sports\adult-sports.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\sports\register-now.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\sports\summer-sports-clinic.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\sports\youth-sports.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\swim\register-now.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\swim\summer-swim-clinic.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\swim\swim-lessons.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\swim\swim-team.png" />
+    <Content Include="App_Style\images\banner\thumbnails\programs\swim\water-exercise.png" />
+    <Content Include="App_Style\images\branding\branding-big-01.png" />
+    <Content Include="App_Style\images\branding\branding-big.png" />
+    <Content Include="App_Style\images\branding\small-brand.png" />
+    <Content Include="App_Style\images\branding\small-branding-sada.png" />
+    <Content Include="App_Style\images\branding\small-branding.png" />
+    <Content Include="App_Style\images\branding\y-of-central-md.png" />
+    <Content Include="App_Style\images\btn-arrow.png" />
+    <Content Include="App_Style\images\directors\betty-kulp.png" />
+    <Content Include="App_Style\images\directors\betty-sterner.png" />
+    <Content Include="App_Style\images\directors\caroline.png" />
+    <Content Include="App_Style\images\directors\cheryl.png" />
+    <Content Include="App_Style\images\directors\Christie-Ryan.png" />
+    <Content Include="App_Style\images\directors\chrysal-wolfe.png" />
+    <Content Include="App_Style\images\directors\Chrystal Hahncrp copy.jpg" />
+    <Content Include="App_Style\images\directors\eric-summer.png" />
+    <Content Include="App_Style\images\directors\jennifer.png" />
+    <Content Include="App_Style\images\directors\jessica.png" />
+    <Content Include="App_Style\images\directors\jillblack.png" />
+    <Content Include="App_Style\images\directors\john-babcock.png" />
+    <Content Include="App_Style\images\directors\kelly.png" />
+    <Content Include="App_Style\images\directors\mike-walter.png" />
+    <Content Include="App_Style\images\directors\robert-smith.png" />
+    <Content Include="App_Style\images\directors\susanne-green.png" />
+    <Content Include="App_Style\images\dux-header-bg.png" />
+    <Content Include="App_Style\images\favicon.ico" />
+    <Content Include="App_Style\images\footer-list-arrow.png" />
+    <Content Include="App_Style\images\footer-logo.png" />
+    <Content Include="App_Style\images\leadership-team\Becky-Zahn.jpg" />
+    <Content Include="App_Style\images\leadership-team\Beverly-Landis.jpg" />
+    <Content Include="App_Style\images\leadership-team\Bob-Brosmer.jpg" />
+    <Content Include="App_Style\images\leadership-team\ChrisAderSoto.jpg" />
+    <Content Include="App_Style\images\leadership-team\David-Scheutz.jpg" />
+    <Content Include="App_Style\images\leadership-team\David-Zeiders.jpg" />
+    <Content Include="App_Style\images\leadership-team\Dawn-Chrystal-Wolf.jpg" />
+    <Content Include="App_Style\images\leadership-team\Derryck-Fletcher.jpg" />
+    <Content Include="App_Style\images\leadership-team\Eric-Somerville.jpg" />
+    <Content Include="App_Style\images\leadership-team\EricWilliams.jpg" />
+    <Content Include="App_Style\images\leadership-team\GailReich.jpg" />
+    <Content Include="App_Style\images\leadership-team\Jeff-Sprinkle.jpg" />
+    <Content Include="App_Style\images\leadership-team\Jeremy-Trimble.jpg" />
+    <Content Include="App_Style\images\leadership-team\Jill-Black.jpg" />
+    <Content Include="App_Style\images\leadership-team\JohnHoey.jpg" />
+    <Content Include="App_Style\images\leadership-team\Lana-Smith.jpg" />
+    <Content Include="App_Style\images\leadership-team\Mario-Trescone.jpg" />
+    <Content Include="App_Style\images\leadership-team\Mel-Brennan.jpg" />
+    <Content Include="App_Style\images\leadership-team\MichelleBecoteJackson.jpg" />
+    <Content Include="App_Style\images\leadership-team\Ruth-Heltne.jpg" />
+    <Content Include="App_Style\images\leadership-team\Ryan-Trexler.jpg" />
+    <Content Include="App_Style\images\leadership-team\SaraMilstein.jpg" />
+    <Content Include="App_Style\images\leadership-team\Sherrie-Rovnan.jpg" />
+    <Content Include="App_Style\images\leadership-team\Suzanne-Green.jpg" />
+    <Content Include="App_Style\images\list-arrow.png" />
+    <Content Include="App_Style\images\loader.gif" />
+    <Content Include="App_Style\images\login-arrow.png" />
+    <Content Include="App_Style\images\login-icon.png" />
+    <Content Include="App_Style\images\minus-icon.png" />
+    <Content Include="App_Style\images\monarchglobal-main.jpg" />
+    <Content Include="App_Style\images\monarchglobal-small.jpg" />
+    <Content Include="App_Style\images\next.png" />
+    <Content Include="App_Style\images\next1.png" />
+    <Content Include="App_Style\images\no-image.jpg" />
+    <Content Include="App_Style\images\password-icon.png" />
+    <Content Include="App_Style\images\personal-training\Alice-Lium-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\Amy-Nesspor-Orokawa.jpg" />
+    <Content Include="App_Style\images\personal-training\AmyReed-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\Andy-Corbett-Parkville.jpg" />
+    <Content Include="App_Style\images\personal-training\Archie-Cumberbatch-DruidHill.jpg" />
+    <Content Include="App_Style\images\personal-training\AveryVice-CatonsvilleDancel.jpg" />
+    <Content Include="App_Style\images\personal-training\Barb-Ormond-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\Barbara-Wolfe-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\Beata-Carnhan-Parkville.jpg" />
+    <Content Include="App_Style\images\personal-training\BrianBrown-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\CaraSmith-PerryHall.jpg" />
+    <Content Include="App_Style\images\personal-training\CraigBrooks-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\DaleBarr-GreaterAnnapolis.jpg" />
+    <Content Include="App_Style\images\personal-training\DAmaadiColeman-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\DanaPerry-Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\DanielleSullivan-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\DanielRoman-PerryHall.jpg" />
+    <Content Include="App_Style\images\personal-training\Derrick%28DJ%29Johnson-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\DianeHensley-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\Erin-Wood-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\GlennEgbert-Orokawa.jpg" />
+    <Content Include="App_Style\images\personal-training\Greg-Lee-Parkville.jpg" />
+    <Content Include="App_Style\images\personal-training\Hill-Y--GlennDeuchler.jpg" />
+    <Content Include="App_Style\images\personal-training\Hill-Y-ArmandoOrtiz.jpg" />
+    <Content Include="App_Style\images\personal-training\Hill-Y-BrendaBaker.jpg" />
+    <Content Include="App_Style\images\personal-training\Hill-Y-JordanHaegerich.jpg" />
+    <Content Include="App_Style\images\personal-training\Hill-Y-KathleenDistler.jpg" />
+    <Content Include="App_Style\images\personal-training\Ivan-Rodriquez-Orokawa.jpg" />
+    <Content Include="App_Style\images\personal-training\Jen-Burnett-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\JenniferNoll-Catonsville.jpg" />
+    <Content Include="App_Style\images\personal-training\JillWilliamson-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\JonathanBlackburn-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\Julie-Gleeson-Orokawa.jpg" />
+    <Content Include="App_Style\images\personal-training\Julie-Mizak-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\JustinMabe-Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\LanaDench - Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\LindaSmith-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\MargretaRempert-CatDancelPerryHalDruidHill.jpg" />
+    <Content Include="App_Style\images\personal-training\MarkFleming-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\Melissa-Macefe-Parkville.jpg" />
+    <Content Include="App_Style\images\personal-training\Mike-Byrne-Ward.jpg" />
+    <Content Include="App_Style\images\personal-training\MollyReitz-Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\RaechelleFloyd-Weinberg.jpg" />
+    <Content Include="App_Style\images\personal-training\RichardLeone-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\RobinYerkes-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\personal-training\SamO%27Connell-Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\ShannonCovington.jpg" />
+    <Content Include="App_Style\images\personal-training\StacyYoo-Dancel.jpg" />
+    <Content Include="App_Style\images\personal-training\SusanFioravante-PerryHallParkville.jpg" />
+    <Content Include="App_Style\images\personal-training\TaalibSmith-GreaterAnnap.jpg" />
+    <Content Include="App_Style\images\play.png" />
+    <Content Include="App_Style\images\plus-icon.png" />
+    <Content Include="App_Style\images\power.png" />
+    <Content Include="App_Style\images\prev.png" />
+    <Content Include="App_Style\images\prev1.png" />
+    <Content Include="App_Style\images\share-icon.png" />
+    <Content Include="App_Style\images\sidebar.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\abell-foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\abm.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\bge.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\bultimore-life.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\carefirst.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\carlouzzi-foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Chesapeake-Vending.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Creig-Northrop.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\cybex.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\dex-imaging.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\evergreen].jpg" />
+    <Content Include="App_Style\images\sponsor-logos\France-Merrick-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Golfers-Charitable.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Harry-and-Jeanette-Weinberg-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\HarryTCampbell-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Henry-Ruth-Blaustein-foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Johns-Hopkins-University.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Keith-Campbell-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Kirk-Family-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Legg-Mason-Inc.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\M-T-Bank.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Marks-Thomas.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\McCormick.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Meyerhoff.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\myofficeproducts.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\NorthropGruman.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\oriolesreach.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Penguin-Random-House.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\PNCGrow.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Sylvan-Laureate.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\The-Columbia-Bank.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\The-Orokawa-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Thomas-W-Bradley-Foundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\TransAmerica.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\TRowePriceFoundation.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\UpperChesapeakeHealth.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Venable.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\WhitingTurner.jpg" />
+    <Content Include="App_Style\images\sponsor-logos\Windsor-Healthcare-Equities.jpg" />
+    <Content Include="App_Style\images\tab\home-tab-icon\at-the-y-now.png" />
+    <Content Include="App_Style\images\tab\home-tab-icon\before-after-schools.png" />
+    <Content Include="App_Style\images\tab\home-tab-icon\camps.png" />
+    <Content Include="App_Style\images\tab\home-tab-icon\membership.png" />
+    <Content Include="App_Style\images\tab\home-tab-icon\preschools.png" />
+    <Content Include="App_Style\images\top-nav-bg.png" />
+    <Content Include="App_Style\images\turkey-small-text.png" />
+    <Content Include="App_Style\images\turkey-steps.png" />
+    <Content Include="App_Style\images\turkey-trot.png" />
+    <Content Include="App_Style\images\turkey-trot-default-2016.png" />
+    <Content Include="App_Style\images\turkey-trot-hover-2016.png" />
+    <Content Include="App_Style\js\bootstrap.js" />
+    <Content Include="App_Style\js\froogaloop2.min.js" />
+    <Content Include="App_Style\js\html5shiv.js" />
+    <Content Include="App_Style\js\jquery.responsiveiframe.js" />
+    <Content Include="App_Style\js\respond.js" />
+    <Content Include="App_Style\js\responsive-tabs-2.3.2.js" />
+    <Content Include="App_Style\js\responsive-tabs.js" />
+    <Content Include="App_Themes\Default\css\00.reset.css" />
+    <Content Include="App_Themes\Default\css\01.960_24_col.css" />
+    <Content Include="App_Themes\Default\css\02.text.css" />
+    <Content Include="App_Themes\Default\css\03.layout.css" />
+    <Content Include="App_Themes\Default\css\BreadCrumb.css" />
+    <Content Include="App_Themes\Default\css\buttons.css" />
+    <Content Include="App_Themes\Default\css\Forms.css" />
+    <Content Include="App_Themes\Default\css\grids.css" />
+    <Content Include="App_Themes\Default\css\left-menu.css" />
+    <Content Include="App_Themes\Default\images\blank.gif" />
+    <Content Include="App_Themes\Default\images\calendar.png" />
+    <Content Include="App_Themes\Default\images\Chevron.gif" />
+    <Content Include="App_Themes\Default\images\ChevronOverlay.png" />
+    <Content Include="App_Themes\Default\images\eisk-5-logo-x2.png" />
+    <Content Include="App_Themes\Default\images\eisk-header-grad.png" />
+    <Content Include="App_Themes\Default\images\eisk-logo.png" />
+    <Content Include="App_Themes\Default\images\extras\ico-delete.png" />
+    <Content Include="App_Themes\Default\images\extras\loader-modal.gif" />
+    <Content Include="App_Themes\Default\images\IconHome.gif" />
+    <Content Include="App_Themes\Default\images\listing\asc.png" />
+    <Content Include="App_Themes\Default\images\listing\desc.png" />
+    <Content Include="App_Themes\Default\images\listing\ico-edit.png" />
+    <Content Include="App_Themes\Default\images\listing\ico-view.png" />
+    <Content Include="App_Themes\Default\images\listing\sort-regular.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="App_Themes\Default\jquery.theme.redmond\jquery-ui-1.8.9.custom.css" />
+    <Content Include="centerimprovements\default.aspx" />
+    <Content Include="centerimprovements\hidden.aspx" />
+    <Content Include="centerimprovements\images\greater-annapolis.jpg" />
+    <Content Include="centerimprovements\images\slider-01.jpg" />
+    <Content Include="centerimprovements\images\slider-02.jpg" />
+    <Content Include="centerimprovements\images\slider-03.jpg" />
+    <Content Include="centerimprovements\images\slider-04.jpg" />
+    <Content Include="centerimprovements\images\slider-05.jpg" />
+    <Content Include="centerimprovements\images\slider-06.jpg" />
+    <Content Include="centerimprovements\images\slider-07.jpg" />
+    <Content Include="centerimprovements\images\slider-08.jpg" />
+    <Content Include="centerimprovements\images\slider-09.jpg" />
+    <Content Include="centerimprovements\images\slider-10.jpg" />
+    <Content Include="centerimprovements\images\slider-11.jpg" />
+    <Content Include="centerimprovements\images\slider-12.jpg" />
+    <Content Include="centerimprovements\images\slider-13.jpg" />
+    <Content Include="centerimprovements\images\slider-14.jpg" />
+    <Content Include="centerimprovements\images\slider-15.jpg" />
+    <Content Include="centerimprovements\images\slider-16.jpg" />
+    <Content Include="centerimprovements\images\slider-17.jpg" />
+    <Content Include="centerimprovements\images\slider-18.jpg" />
+    <Content Include="centerimprovements\images\slider-19.jpg" />
+    <Content Include="centerimprovements\images\slider-20.jpg" />
+    <Content Include="centerimprovements\images\slider-21.jpg" />
+    <Content Include="centerimprovements\images\slider-22.jpg" />
+    <Content Include="centerimprovements\images\slider-23.jpg" />
+    <Content Include="centerimprovements\images\slider\1.jpg" />
+    <Content Include="centerimprovements\images\slider\2.jpg" />
+    <Content Include="centerimprovements\images\slider\3.jpg" />
+    <Content Include="centerimprovements\images\slider\4.jpg" />
+    <Content Include="centerimprovements\images\slider\5.jpg" />
+    <Content Include="centerimprovements\images\slider\6.jpg" />
+    <Content Include="centerimprovements\images\slider\slide1.jpg" />
+    <Content Include="centerimprovements\images\slider\slide2.jpg" />
+    <Content Include="centerimprovements\images\slider\slide3.jpg" />
+    <Content Include="centerimprovements\images\slider\slide4.jpg" />
+    <Content Include="centerimprovements\images\slider\slide5.jpg" />
+    <Content Include="centerimprovements\images\slider\slide6.jpg" />
+    <Content Include="common-page-layout.aspx" />
+    <Content Include="contactus.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="Email_Template\AdminEmailTemplate.txt" />
+    <Content Include="Email_Template\CustomerEmailTemplate.txt" />
+    <Content Include="Email_Template\images\branding-big-01.png" />
+    <Content Include="Email_Template\images\facebook.png" />
+    <Content Include="Email_Template\images\gpluse.png" />
+    <Content Include="Email_Template\images\header.png" />
+    <Content Include="Email_Template\images\twiter.png" />
+    <Content Include="Email_Template\images\youtube.png" />
+    <Content Include="error-page.aspx" />
+    <Content Include="footer\annualreports.aspx" />
+    <Content Include="footer\beverly-landis-hidden-bio.aspx" />
+    <Content Include="footer\billinginquiries.aspx" />
+    <Content Include="footer\capitalcampaigns.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="footer\christine-ader-soto-hidden-bio.aspx" />
+    <Content Include="footer\employment.aspx" />
+    <Content Include="footer\eric-t-williams-hidden-bio.aspx" />
+    <Content Include="footer\financialassistance.aspx" />
+    <Content Include="footer\jeff-sprinkle-hidden-bio.aspx" />
+    <Content Include="footer\john-k-hoey-hidden-bio.aspx" />
+    <Content Include="footer\leadership-new.aspx" />
+    <Content Include="footer\leadership.aspx" />
+    <Content Include="footer\leadership.js" />
+    <Content Include="footer\mediacenter.aspx" />
+    <Content Include="footer\michelle-becote-jackson-hidden-bio.aspx" />
+    <Content Include="footer\partnershipopportunities.aspx" />
+    <Content Include="footer\privacypolicy.aspx" />
+    <Content Include="footer\robert-j-brosmer-hidden-bio.aspx" />
+    <Content Include="footer\sara-i-milstein-hidden-bio.aspx" />
+    <Content Include="footer\sherrie-l-rovnan-hidden-bio.aspx" />
+    <Content Include="footer\sitemap.aspx" />
+    <Content Include="footer\sponsors.aspx" />
+    <Content Include="footer\strategicplan.aspx" />
+    <Content Include="footer\volunteer-content.aspx" />
+    <Content Include="footer\volunteer-log-in.aspx" />
+    <Content Include="footer\volunteerlogin.aspx" />
+    <Content Include="App_Resources\images\ico-cal.png" />
+    <Content Include="App_Resources\images\loader-life.gif" />
+    <Content Include="App_Resources\images\noimage.gif" />
+    <Content Include="App_Resources\messages\error-page.aspx" />
+    <Content Include="App_Resources\system\log\log.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="monarchglobal\default.aspx" />
+    <Content Include="privacy-policy.aspx" />
+    <Content Include="reference\log4net.dll" />
+    <Content Include="reference\prismic.dll" />
+    <Content Include="reference\prismic.extensions.dll" />
+    <Content Include="User_Control\YDCarouselControlV2.ascx" />
+    <Content Include="User_Control\YDCarouselInfoV2.ascx" />
+    <Content Include="User_Control\YDMenuControlV2.ascx" />
+    <Content Include="User_Control\YDMenuSectionUC.ascx" />
+    <Content Include="User_Control\YDPageContainerImage.ascx" />
+    <Content Include="User_Control\YDSiteMapControlV2.ascx" />
+    <Content Include="User_Control\YPageImageSlide.ascx" />
+    <Content Include="volunteer-login02.aspx" />
+    <Content Include="Y-Bio.aspx" />
+    <Content Include="Y-Info.aspx" />
+    <Content Include="y-preschool-form.aspx" />
+    <Content Include="Y-Schedule-Print-Friendly.aspx" />
+    <Content Include="Y-Schedule.aspx" />
+    <Content Include="YBasePage.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="innerpage.aspx" />
+    <Content Include="location-specific-page-personal-trainer-tab.aspx" />
+    <Content Include="location-specific.aspx" />
+    <Content Include="no-cookie.aspx" />
+    <Content Include="no-javascript.aspx" />
+    <Content Include="reference\Newtonsoft.Json.dll" />
+    <Content Include="reference\System.Net.Http.dll" />
+    <Content Include="reference\System.Net.Http.Formatting.dll" />
+    <Content Include="reference\System.Net.Http.WebRequest.dll" />
+    <Content Include="reference\System.Web.Http.dll" />
+    <Content Include="reference\System.Web.Http.WebHost.dll" />
+    <Content Include="schedule.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="App_Logic\Entity Model\DatabaseContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseContext.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Eisk.DataAccess</CustomToolNamespace>
+    </EntityDeploy>
+    <None Include="App_Logic\Business Entities\Business Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Business Entities.cs</LastGenOutput>
+    </None>
+    <None Include="App_Logic\Business Logic Layer\Business Logic Layer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Business Logic Layer.cs</LastGenOutput>
+    </None>
+    <None Include="App_Logic\Data Access Layer\Data Access Layer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Data Access Layer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Resources\default.Master" />
+    <Content Include="App_Resources\admin.master" />
+    <Content Include="App_Style\css\fonts\104d2522-a045-45dc-9adc-b64ca6af60b0.ttf" />
+    <Content Include="App_Style\css\fonts\1759dc85-8914-40ba-b188-15e4edaab18d.woff" />
+    <Content Include="App_Style\css\fonts\2768cd21-701e-4721-9f26-8b9805d532a6.ttf" />
+    <Content Include="App_Style\css\fonts\6d297abf-10e9-4341-a29f-45080f1ebfab.woff" />
+    <Content Include="App_Style\css\fonts\7aa9b54d-99a5-4935-8cb9-655f66538358.woff" />
+    <Content Include="App_Style\css\fonts\83ae431e-0fd4-41e4-8186-8decedde5b1c.eot" />
+    <Content Include="App_Style\css\fonts\8c13495e-0421-4f4d-8ef5-3c4f11a2a6d1.eot" />
+    <Content Include="App_Style\css\fonts\dd8c38f7-f93b-4e3e-a6a7-2979efd4a9b5.ttf" />
+    <Content Include="App_Style\css\fonts\e39abba7-8b3c-470c-afd8-432b385bd650.eot" />
+    <Content Include="App_Style\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Style\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="App_Style\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="App_Style\css\fonts\FontAwesome.otf" />
+    <Content Include="App_Style\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Style\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App_Style\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App_Style\css\fonts\opensans-light-webfont.eot" />
+    <Content Include="App_Style\css\fonts\opensans-light-webfont.ttf" />
+    <Content Include="App_Style\css\fonts\opensans-light-webfont.woff" />
+    <Content Include="App_Style\css\fonts\opensans-regular-webfont.eot" />
+    <Content Include="App_Style\css\fonts\opensans-regular-webfont.ttf" />
+    <Content Include="App_Style\css\fonts\opensans-regular-webfont.woff" />
+    <Content Include="Email_Template\images\Thumbs.db" />
+    <Content Include="App_Resources\App_Style\css\fonts\104d2522-a045-45dc-9adc-b64ca6af60b0.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\1759dc85-8914-40ba-b188-15e4edaab18d.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\2768cd21-701e-4721-9f26-8b9805d532a6.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\6d297abf-10e9-4341-a29f-45080f1ebfab.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\7aa9b54d-99a5-4935-8cb9-655f66538358.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\83ae431e-0fd4-41e4-8186-8decedde5b1c.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\8c13495e-0421-4f4d-8ef5-3c4f11a2a6d1.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\dd8c38f7-f93b-4e3e-a6a7-2979efd4a9b5.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\e39abba7-8b3c-470c-afd8-432b385bd650.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\FontAwesome.otf" />
+    <Content Include="App_Resources\App_Style\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-light-webfont.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-light-webfont.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-light-webfont.woff" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-regular-webfont.eot" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-regular-webfont.ttf" />
+    <Content Include="App_Resources\App_Style\css\fonts\opensans-regular-webfont.woff" />
+    <Content Include="App_Themes\Default\Eisk.skin" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\base_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\chart_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\combo_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\convert.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\crosslink_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\dataprocessor.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\dataview_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\data_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_adodb.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_common.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_excel.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_filesystem.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_mssql.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_mysqli.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_oracle.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_pdo.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_phpcake.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_phpci.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_phpyii.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_postgre.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_sasql.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_sqlite.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_sqlite3.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\db_sqlsrv.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\filesystem_item.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\form_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\grid_config.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\grid_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\keygrid_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\mixed_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\options_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\scheduler_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\strategy.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\tools.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treedatagroup_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treedatamultitable_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treegridgroup_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treegridmultitable_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treegrid_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treegroup_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\treemultitable_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\tree_connector.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\update.php" />
+    <Content Include="App_Resources\client-scripts\app\DHTMLX\dhtmlxScheduler\codebase\connector\xss_filter.php" />
+    <Content Include="packages.config" />
+    <Content Include="App_Resources\client-scripts\app\YScheduler.min.js.map">
+      <DependentUpon>YScheduler.js</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="footer\pdf\0118MLKMA%282%29.pdf" />
+    <Content Include="footer\pdf\0130ExpressoBike_MA 012513.pdf" />
+    <Content Include="footer\pdf\1002BaltSun10.13.pdf" />
+    <Content Include="footer\pdf\1022BSun.pdf" />
+    <Content Include="footer\pdf\Balt-Mag-Y-Voted-Best-Places-to-Work-0213.pdf" />
+    <Content Include="footer\pdf\FIN-APP-2014.pdf" />
+    <Content Include="footer\pdf\GAFCY-Press-Release.pdf" />
+    <Content Include="footer\pdf\JCP_Release.pdf" />
+    <Content Include="footer\pdf\MarApr2014SmartCEO.pdf" />
+    <Content Include="footer\pdf\Mentoring-programs-at-the-Y-baltimoresun.pdf" />
+    <Content Include="footer\pdf\Mentors%282%29.pdf" />
+    <Content Include="footer\pdf\NovInsideCanton_1.pdf" />
+    <Content Include="footer\pdf\NovMDFamily.pdf" />
+    <Content Include="footer\pdf\WardExpansion_Release%28final%29.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2003.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2004.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2005.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2006.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2007.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2008.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2010.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2011.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual-Report-2012.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Cause-Annual Report-2009.pdf" />
+    <Content Include="footer\pdf\OUR-MISSION-Serving-at-Risk-Youth-Fit-n-Fun-Results.pdf" />
+    <Content Include="footer\pdf\Strategic_Plan-A_Healthy_Y_for_a_Healthier_Central_Maryland.pdf" />
+    <Content Include="footer\pdf\StrategicPlan_HealthierCentralMD_2015.pdf" />
+    <Content Include="App_Resources\client-scripts\datepicker\less\datepicker.less" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular-animate.min.js.map" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular-route.min.js.map" />
+    <Content Include="App_Resources\client-scripts\framework\angular\angular.min.js.map" />
+    <Content Include="App_Logic\Helpers\AnalyticsV3\AnalyticCore\ApiCertificate\Y of Central MD-d93f6f2053fa.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="monarchglobal\PDF\BASE-FT-CompMbrshp-flyer_upd2.pdf" />
+    <Content Include="monarchglobal\PDF\Monarch-Packet 033115-Full-Reg-packet.pdf" />
+    <Content Include="reference\scheduler_data.dat" />
+    <None Include="Properties\PublishProfiles\Asad.pubxml" />
+    <None Include="Properties\PublishProfiles\Haider.pubxml" />
+    <None Include="Properties\PublishProfiles\ijaz-y-portal.pubxml" />
+    <None Include="Properties\PublishProfiles\khadem-y-cms-publish.pubxml" />
+    <None Include="Properties\PublishProfiles\Mukit-Publish.pubxml" />
+    <None Include="Properties\PublishProfiles\T_Profile.pubxml" />
+    <None Include="Properties\PublishProfiles\Y Publish SH.pubxml" />
+    <None Include="Properties\PublishProfiles\ypublish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrismicIOAPI\PrismicIOAPI.csproj">
+      <Project>{adb42dba-6edf-401e-aa65-eb33db95bada}</Project>
+      <Name>PrismicIOAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17100</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17110/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\y-portal.Solution\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\y-portal.Solution\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\y-portal.Solution\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\y-portal.Solution\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

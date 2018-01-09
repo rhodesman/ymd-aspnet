@@ -1,0 +1,78 @@
+﻿ <div ng-controller="BlastListCtrl">
+     
+        <h1 class="title-01">Blast Overview</h1>
+            
+        <div id="divMessage" runat="server" style="display: none;">
+        </div>
+        
+        <a href="#/blastData/0/0" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New</a> 
+
+
+
+        <div class="data-loader" ng-show="!Blasts"></div>
+        <div ng-show="Blasts">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>                    
+                        <!--<th>BlastId
+                        </th>
+                        <th>SegmentId
+                        </th>-->
+                         <!--<th>Blast Display Name
+                        </th>-->
+                         <th>Mailing ID
+                        </th>
+                        <th>Mailing Subject
+                        </th>
+                        <th>Blast Start Date
+                        </th>
+                        <!--<th>BlastEndDate
+                        </th>-->
+                         <th>Blast Type
+                        </th>
+                        <th>
+                            Active?
+                        </th>
+                         
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr ng-repeat="blast in Blasts">
+                       <!-- <td>{{gla.BlastId| number}}
+                        </td>
+                        <td>{{gla.SegmentId | number}}
+                        </td>-->
+                      
+                         <!--<td>
+                         <a href="#/blastData/{{blast.CampaignId}}/{{blast.BlastId}}"> {{blast.BlastDisplayName}}</a>                            
+                        </td>-->
+                         <td>{{blast.SchedulerMailingId }}
+                        </td>
+                         <td>{{blast.MailingSubject}}
+                        </td>
+                         <td>{{blast.blastStartDateFormated | date:'mediumDate'}}
+                        </td>
+                         <!--<td>{{blast.BlastEndDate | date:'medium'}}
+                        </td>-->
+                        <td>{{blast.BlastType}}
+                        </td>
+                       <td>
+                           {{blast.IsActive===true?"Yes":"No"}}
+                       </td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerFirst()">&laquo;&laquo;</a></li>
+                <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerPrev()">&laquo;</a></li>
+                <li ng-class="{'active': n == pageNumber}" ng-repeat="n in range(startPager, endPager)"><a href="javascript:void(0);" ng-click="GetResultPaged(n)">{{n}}</a></li>
+                <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerNext()">&raquo;</a></li>
+                <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerLast()">&raquo;&raquo;</a></li>
+            </ul>
+        </div>
+
+
+         
+    </div>
+

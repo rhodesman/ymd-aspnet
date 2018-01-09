@@ -1,0 +1,241 @@
+﻿body {
+    font-family: 'open_sansregular';
+}
+.branding img {
+
+width:417px;
+
+}
+.dux-header
+{
+    background: #e7e8e8; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e7e8e8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e7e8e8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e7e8e8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e7e8e8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e7e8e8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e7e8e8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7e8e8',GradientType=0 ); /* IE6-9 */
+    padding-top:10px;
+    padding-bottom:10px;
+    
+
+}
+
+    .dux-header #lnkBtnLogOut {
+    text-align:center;
+   
+    }
+.dux-header #lnkBtnLogOut span {
+    font-size:18px;
+    }
+.top-space
+{
+    margin-top:20px;
+}
+
+.table tr td
+{
+    font-size:14px !important;
+}
+.navbar
+{
+    margin-bottom:0 !important;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+{
+    background-color: #ECECEC !important;
+}
+.logout {
+    background-image: url("../images/power.png");
+    display: block;
+    height: 21px;
+    margin: 0 auto 4px;
+    width: 19px;
+}
+
+.logout-text
+{
+    color:#a3a2a2 !important;
+}
+
+    .logout-text:hover
+    {
+        color:#737373 !important;
+    }
+
+.seperator
+{
+    border-left:1px solid #d7d6d6;
+}
+
+.login-box {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D6D6;
+    box-shadow: 1px 2px 3px 0 #D6D6D6;
+    margin: 13px auto 100px;
+    padding: 30px 19px;
+    text-align: left;
+    width: 320px;
+}
+
+.login-icon, .password-icon {
+    background-position: 256px 11px;
+    background-repeat: no-repeat;
+}
+.login-icon {
+    background-image: url("../images/login-icon.png");
+}
+.password-icon {
+    background-image: url("../images/password-icon.png");
+}
+.login-btn {
+    background-color: #5C2D91;
+    background-image: url("../images/login-arrow.png");
+    background-position: 259px 17px;
+    background-repeat: no-repeat;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 15px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    text-transform: uppercase;
+}
+
+.login-btn:hover
+{
+    background-color: #562a88;
+}
+
+.login-submit {
+    width: 100%;
+}
+
+.admin-logo {
+    display: block;
+    margin: 100px auto 30px;
+}
+.admin-logo img, .admin-logo
+{
+    width:320px;
+}
+
+
+
+
+ .loader {
+    background-image: url(../images/loader.gif);
+    background-position: center center;
+    background-color:#fff;
+    background-repeat: no-repeat;
+    width:100%;
+    height:100%;
+    display: block;
+    position:absolute;
+    z-index:1000;
+    left:0;
+    top:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clear {
+
+clear:both;
+
+}
+.table {
+    margin-top:25px;
+    color:#737373;
+    font-family: "Cachet W01 Book";
+}
+
+.table a{
+   color:#737373;
+}
+
+.table th{
+   font-weight:normal;
+   font-family: "Cachet W01 Medium";
+}
+
+
+
+.common-box-001 {
+    padding:8px 20px;
+    background-color:#D6D6D6;
+    float:left;
+    min-width:250px;
+    margin-right:20px;
+    margin-bottom:25px;
+    text-align:right;
+    margin-bottom:25px;
+    font-family: "Cachet W01 Book";
+}
+
+.common-box-001 span  {
+      display: block;
+    font-size: 68px;
+   
+}
+
+.common-box-001 label  {
+
+    display: block;
+    font-size: 16px;
+    padding-top: 5px;
+    text-align:left;
+   font-family: 'open_sansregular';
+   color:#3e3e3e;
+}
+
+.title-01 {
+  font-size: 24px;
+    line-height: 27px;
+    margin-bottom: 24px;
+    margin-top: 22px;
+}
+.btn-primary span {
+    font-size:12px;
+    margin-right:8px;
+}
+
+.list-group li label {
+    margin-right:10px;
+    font-family: "Cachet W01 Book";
+}
+
+.table-bordered > thead > tr > th {
+    font-style:normal;
+}
+.view-animate {
+    padding:0px !important;
+    margin-top:15px;
+}
+
+.navbar-form {
+    background-color:#ECECEC;
+    padding:10px;
+}
+
+.table tr td {
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+.form-inline .form-group input.form-control {
+     padding: 4px 6px;
+}

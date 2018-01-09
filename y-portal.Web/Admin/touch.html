@@ -1,0 +1,75 @@
+﻿<div ng-controller="TouchCtrl">
+    <a href="/admin" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back</a> 
+
+
+    <h2 class="title-01">{{touchOverview.SubjectLine}}</h2>
+   
+
+    <div id="divMessage" style="display: none;"></div>
+    <div class="data-loader" ng-show="!touchOverview"></div>
+    <div class="alert alert-warning" ng-show="!touchLoaded">No data found.</div>
+
+    <div ng-show="touchOverview">
+
+
+        <div class="row">
+             <div class="col-md-5"><!--<label>Send Thumnail:</label>--> <img class="img-responsive" src="../Admin/EmailThumbImage/{{touchOverview.ThumbnailUrl}}"/> </div>
+
+            <div class="col-md-7">
+
+                <ul class="list-group">
+  <li class="list-group-item"><label>  Send Date: </label> {{touchOverview.SendDate | date}}</li>
+  <li class="list-group-item"><label>  Sent:</label> {{touchOverview.TotalSent  | number}}</li>
+  <li class="list-group-item"><label>Opened:</label> {{touchOverview.TotalOpened  | number}}</li>
+  <li class="list-group-item"><label>  Bounced:</label> {{touchOverview.TotalBounced  | number}}</li>
+  <li class="list-group-item"><label>Opt Out: </label>{{touchOverview.TotalOptout  | number }}</li>
+
+                    <li class="list-group-item"><label>Clicks: </label>{{touchOverview.TotalClicked  | number}}</li>
+</ul>
+
+
+
+                
+
+        
+
+
+       
+
+
+         
+
+       
+
+         
+
+         
+
+            </div>
+
+
+
+
+           
+            
+
+
+            </div>
+
+         
+
+      
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    
+</div>

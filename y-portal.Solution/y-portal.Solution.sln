@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "y-portal.Web", "..\y-portal.Web\y-portal.Web.csproj", "{E4054609-47C8-40ED-9B17-74084D2A38CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1DEB09E5-7FD3-44C8-962D-E0827A5EA8DC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismicIOAPI", "..\PrismicIOAPI\PrismicIOAPI.csproj", "{ADB42DBA-6EDF-401E-AA65-EB33DB95BADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismicIOAPITest", "PrismicIOAPITest\PrismicIOAPITest.csproj", "{DE12D24D-F05F-4555-95C5-5BAC62DD389D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3BDE980F-CBC4-4BD6-B5B9-BC549C9862DB}"
+	ProjectSection(SolutionItems) = preProject
+		Performance2.psess = Performance2.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs03.discountasp.net/tfs/webbmason
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\y-portal.Web\\y-portal.Web.csproj
+		SccProjectName1 = ../y-portal.Web
+		SccLocalPath1 = ..\\y-portal.Web
+		SccProjectUniqueName2 = ..\\PrismicIOAPI\\PrismicIOAPI.csproj
+		SccProjectName2 = ../PrismicIOAPI
+		SccLocalPath2 = ..\\PrismicIOAPI
+		SccProjectUniqueName3 = PrismicIOAPITest\\PrismicIOAPITest.csproj
+		SccProjectName3 = PrismicIOAPITest
+		SccLocalPath3 = PrismicIOAPITest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4054609-47C8-40ED-9B17-74084D2A38CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4054609-47C8-40ED-9B17-74084D2A38CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4054609-47C8-40ED-9B17-74084D2A38CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4054609-47C8-40ED-9B17-74084D2A38CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB42DBA-6EDF-401E-AA65-EB33DB95BADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB42DBA-6EDF-401E-AA65-EB33DB95BADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB42DBA-6EDF-401E-AA65-EB33DB95BADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB42DBA-6EDF-401E-AA65-EB33DB95BADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE12D24D-F05F-4555-95C5-5BAC62DD389D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE12D24D-F05F-4555-95C5-5BAC62DD389D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE12D24D-F05F-4555-95C5-5BAC62DD389D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE12D24D-F05F-4555-95C5-5BAC62DD389D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

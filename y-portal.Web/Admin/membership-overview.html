@@ -1,0 +1,112 @@
+﻿<div data-ng-controller="MemberCtrl">
+
+    <h1 class="title-01">Member Overview</h1>
+
+    <div id="divMessage" runat="server" style="display: none;">
+    </div>
+    <span class="text-danger error-01" data-ng-show="isDateRangeValid">Start Date cannot be greater than End Date</span>
+    <div class="data-loader" data-ng-show="!Members"></div>
+
+    <div class="form-inline pull-right" role="form">
+        <div class="form-group">
+            <label for="txtSearchByName">Search:</label>
+            <input type="text" class="form-control" data-ng-change="validateDateRange()" placeholder="Start Date" data-ng-model="FromDate" datepicker />
+
+            <strong>- </strong>
+            <input type="text" class="form-control" data-ng-change="validateDateRange()" placeholder="End Date" data-ng-model="ToDate" datepicker />
+        </div>
+        <div class="form-group">
+            
+            <input type="text" id="txtKeyword" class="form-control" placeholder="by Name/Email" data-ng-model="Keyword" autofocus />
+        </div>
+        <div class="form-group">
+            <!--<select id="ddlLocation" data-ng-model="Location" data-ng-options="loc as loc.Name for loc in LocationList" class="form-control">
+                <option value="">Select Location</option>
+            </select>-->
+            <input type="text" id="txtLocation" class="form-control" placeholder="by Location" data-ng-model="Location" />
+        </div>
+        &nbsp;
+        <button id="btncustomSearch" class="btn btn-primary" data-ng-click="Search()" type="button">Search</button>&nbsp;
+        <button id="btnExport" class="btn btn-default" data-ng-click="ExportData()" type="button">Export</button>
+
+    </div>
+
+    <br class="clear" />
+
+    <div data-ng-show="Members" id="myCustomTable">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name
+                    </th>
+                    <th>Last Name
+                    </th>
+                    <th>Email Address
+                    </th>
+                    <th>Phone Number
+                    </th>
+                    <th>Phone Type
+                    </th>
+                    <th>Location
+                    </th>
+                    <th>Date Submitted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="member in Members">
+                    <td>{{member.FirstNameInput }}
+                    </td>
+                    <td>{{member.LastNameInput}}
+                    </td>
+                    <td>{{member.EmailInput}}
+                    </td>
+                    <td>{{member.PhoneInput}}
+                    </td>
+                    <td>{{member.PhoneTypeInput}}
+                    </td>
+                    <td>{{member.YLocationInput}}
+                    </td>
+                    <td>{{member.DateSubmitted}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination">
+            <li data-ng-show="startPager != 1"><a href="javascript:void(0);" data-ng-click="PagerFirst()">&laquo;&laquo;</a></li>
+            <li data-ng-show="startPager != 1"><a href="javascript:void(0);" data-ng-click="PagerPrev()">&laquo;</a></li>
+            <li data-ng-class="{'active': n == pageNumber}" data-ng-repeat="n in range(startPager, endPager)"><a href="javascript:void(0);" data-ng-click="GetResultPaged(n)">{{n}}</a></li>
+            <li data-ng-show="endPager != totalCount"><a href="javascript:void(0);" data-ng-click="PagerNext()">&raquo;</a></li>
+            <li data-ng-show="endPager != totalCount"><a href="javascript:void(0);" data-ng-click="PagerLast()">&raquo;&raquo;</a></li>
+        </ul>
+    </div>
+
+    <div data-ng-show="Members.length == 0">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name
+                    </th>
+                    <th>Last Name
+                    </th>
+                    <th>Email Address
+                    </th>
+                    <th>Phone Number
+                    </th>
+                    <th>Phone Type
+                    </th>
+                    <th>Location
+                    </th>
+                    <th>Date Submitted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7" style="text-align: center">No records were found that match the specified search criteria.                      
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

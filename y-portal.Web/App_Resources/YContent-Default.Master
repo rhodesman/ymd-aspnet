@@ -1,0 +1,468 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="YContent-Default.Master.cs" Inherits="YPortal.Web.App_Resources.YContent_Default" %>
+
+<!DOCTYPE html>
+<html lang="en" class="ng-app" id="ng-app" ng-app="yPortal" xmlns:ng="http://angularjs.org">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>Y of Central MD</title>
+    <noscript>
+        <meta http-equiv="REFRESH" content="0; url=no-javascript.aspx">
+    </noscript>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, , maximum-scale=1.0, user-scalable=no">
+    <link id="page_favicon" href='<%# ResolveUrl("~/App_Style/images/favicon.ico") %>' rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/default.css") %>'>
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/layout.css") %>'>
+    <link rel="stylesheet" type="text/css" href='<%# ResolveUrl("~/App_Style/css/text.css") %>'>
+    <link href='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery-multiselect/jquery.multiselect.css") %>' rel="stylesheet" />
+    <link href='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-ui.css") %>' rel="stylesheet" />
+    <style type="text/css">
+        .frame-responsive {
+            overflow: hidden;
+            border: none;
+            margin: 10px;
+        }
+
+        .frameWrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+        }
+
+            .frameWrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+    </style>
+    <script type="text/javascript">
+        var apiUrl = '<%# YPortal.Helpers.SiteSettings.WebApiUrl %>';
+    </script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/angular/angular.v1.2.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-1.11.0.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jQuery/jquery-ui.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery.maskedinput.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/framework/jquery-multiselect/jquery.multiselect.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/utilities/CookieManager.js") %>'></script>
+    <!--[if lt IE 9]>
+      <script src="<%= ResolveUrl ("~/App_Style/JS/Frameworks/html5.js") %>"></script>
+        <script src="<%= ResolveUrl ("~/App_Style/JS/Frameworks/respond.js") %>"></script>
+         <link rel="stylesheet" type="text/css" href="<%= ResolveUrl ("~/App_Style/css/ie8.css") %>">
+    <![endif]-->
+    <!--[if lte IE 8]>
+
+      <script>
+        document.createElement('ng-include');
+        document.createElement('ng-pluralize');
+        document.createElement('ng-view');
+        document.createElement('ng:include');
+        document.createElement('ng:pluralize');
+        document.createElement('ng:view');
+      </script>
+        <style type="text/css">
+        .fixed-summary{position:inherit !important;}
+        </style>
+    <![endif]-->
+    <!--[if lt IE 8]>
+      <script src="<%# ResolveUrl ("~/Assets/JS/Frameworks/json2.min.js") %>"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="<%# ResolveUrl ("~/App_Style/js/html5shiv.js") %>"></script>
+	<script type="text/javascript" src="<%# ResolveUrl ("~/App_Style/js/respond.js") %>"></script>
+<![endif]-->
+    <!--[if IE 9]> 
+	<style type="text/css">
+        .custom-container{top: -41px;}
+        .dux-content-area .nav-tabs li a {min-height: 90px !important ;}
+        .dux-footer .fa-2x {font-size: 17px !important;}
+    </style>
+<![endif]-->
+    <script type="text/javascript" src='<%# ResolveUrl("~/App_Style/js/bootstrap.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl("~/App_Resources/client-scripts/app/default.master.js") %>'></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="dux-head clearfix">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-7 branding">
+                        <a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>default.aspx">
+                            <img alt="Y of Central MD" src='<%= ResolveUrl("~/App_Style/images/branding/branding-big.png") %>' onclick='SpecialRedirect("default")' />
+                        </a>
+                    </div>
+                    <div class="col-md-5 utility">
+
+                        <button type="button" class=" mobile-nav-btn glyphicon glyphicon-align-justify" data-toggle="collapse" data-target="#demo">
+                        </button>
+
+                        <button type="button" class=" mobile-nav-btn" data-toggle="collapse" data-target="#demo-one">
+                            <img src='<%= ResolveUrl("~/App_Style/images/share-icon.png") %>' />
+                        </button>
+
+                        <div class="mobile-share-nav collapse" id="demo-one">
+                            <div ng-controller="MyLocationCtrl" class="my-location">
+                                <%--<a href="" class="alert mobile-hide">Alert</a>--%>
+                                <div class="select-option">My Y </div>
+                                <select ng-change="SetLocationToCookie()" ng-model="location" ng-options="location as location.Name for location in locationList" class="form-control">
+                                    <option value="">Select Location</option>
+                                </select>
+
+                                <%-- <select ng-change="SetLocationToCookie()" ng-model="location"  class="form-control">
+                                    <option value="">Select Location</option>
+                                    <%--<option ng-repeat="singleLocation in locationList" value="{{singleLocation.LocationPage}}">{{singleLocation.Name}}</option>
+                                </select>--%>
+
+
+
+                                <%--<select class="form-control">
+                                    <option>Catonsville</option>
+                                </select>--%>
+                                <br class="clear" />
+                                <ul class="mobile-utility-nav">
+                                    <%--<li><a href="" class="alert">Alert</a></li>--%>
+                                    <li><a href="https://www.facebook.com/ycentralmaryland" class="" target="_blank">Facebook</a></li>
+                                    <li><a href="https://twitter.com/YofCentralMD" class="" target="_blank">Twitter</a></li>
+                                    <li><a href="https://plus.google.com/115251764806480154229/posts" class="" target="_blank">Google Plus</a></li>
+                                    <li><a href="http://www.youtube.com/user/YofCentralMaryland" class="" target="_blank">YouTube</a></li>
+                                    <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>contact-us.aspx" class="">Contact Us </a></li>
+                                    <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/employment.aspx" class="">Employment</a> </li>
+                                </ul>
+                            </div>
+                            <br class="clear">
+                            <div class="utility-nav mobile-hide">
+                                <a href="https://www.facebook.com/ycentralmaryland" class="fa fa-facebook fa-2x" target="_blank"></a>
+                                <a href="https://twitter.com/YofCentralMD" class="fa fa-twitter fa-2x" target="_blank"></a>
+                                <a href="https://plus.google.com/115251764806480154229/posts" class="fa fa-google-plus fa-2x" target="_blank"></a>
+                                <a href="http://www.youtube.com/user/YofCentralMaryland" class="fa fa-youtube fa-2x" target="_blank"></a>
+                                <a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>contact-us.aspx" class="sub-nav space" onclick='SpecialRedirect("contactus")'>Contact Us </a>
+                                <span>|</span> <a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/employment.aspx" class="sub-nav" onclick='SpecialRedirect("employment")'>Employment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br class="clear">
+                    <div class="col-md-12">
+
+
+
+
+
+
+                        <div class="top-nav collapse" id="demo">
+                            <div class="navbar">
+
+                                <!-- Brand and toggle get grouped for better mobile display -->
+
+                                <div class=" " id="">
+                                    <YContAPI:YMenuControl ID="YMenuControl1"
+                                        runat="server"
+                                        ContentTypeId="content_type=46EFF1eSpqWMKUo4WUeqWa"
+                                        isCached="true" />
+                                    <!--
+                                    <ul class="nav navbar-nav ">
+                                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                            <div class="dropdown-menu max-width positions">
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>CAMPS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirect("campshomes")'>Overview</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirect("campsprofiles")'>Locations</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirect("campsmessagess")'>Options & Fees</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirect("campssports")'>Themes, Trips & Events</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirect("campsyouth")'>General Info & Forms</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("tabAnneArundelCounty")'>Financial Assistance</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/registernow.aspx" onclick='SpecialRedirect("campsregistration")'>Register Now</a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <label>PRESCHOOL</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/preschool/preschools.aspx" onclick='SpecialRedirect("prehomes")'>Preschool</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/preschool/preschools.aspx" onclick='SpecialRedirect("prehead")'>Head Start</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("tabAnneArundelCounty")'>Financial Assistance</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/preschool/how-to-enroll.aspx" onclick='SpecialRedirect("preenroll")'>How to Enroll</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>SWIM</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/swim/swim.aspx" onclick='SpecialRedirect("swimlessons")'>Swim Lessons</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/swim/swim.aspx" onclick='SpecialRedirect("swimexercise")'>Water Exercise</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/swim/swim.aspx" onclick='SpecialRedirect("swimclinics")'>Summer Swim Clinics</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/swim/swim.aspx" onclick='SpecialRedirect("swimteams")'>Swim Teams</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/swim/register-now.aspx" onclick='SpecialRedirect("swimregistration")'>Register Now</a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <label>SPORTS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/sports/sports.aspx" onclick='SpecialRedirect("sportsyouth")'>Youth Sports </a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/sports/sports.aspx" onclick='SpecialRedirect("sportsadult")'>Adult Sports</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/sports/sports.aspx" onclick='SpecialRedirect("sportsclinics")'>Summer Sports Clinics</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/sports/registernow.aspx" onclick='SpecialRedirect("sportsregistration")'>Register Now</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>
+                                                            BEFORE & AFTER SCHOOL
+                                                                <br />
+                                                            PROGRAMS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/before-and-after-school-programs/before-and-after-school-programes.aspx" onclick='SpecialRedirect("baaspenrichment")'>Before & After School Enrichment</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/before-and-after-school-programs/before-and-after-school-programes.aspx" onclick='SpecialRedirect("baaspworkshops")'>Drop-in Workshops</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/before-and-after-school-programs/before-and-after-school-programes.aspx" onclick='SpecialRedirect("baaspstem")'>STEM </a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/before-and-after-school-programs/before-and-after-school-programes.aspx" onclick='SpecialRedirect("baaspgovernment")'>Youth & Government</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("tabAnneArundelCounty")'>Financial Assistance</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/before-and-after-school-programs/register-now.aspx" onclick='SpecialRedirect("sportsyouth")'>How to Register</a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <label>COMMUNITY PROGRAMS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissioncause")'>Serving At-Risk Youth & Families</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>PERSONAL TRAINING</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("pttrainers")'>Meet Our Trainers</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("ptoneonone")'>One-on-One Training</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("ptsmallgroup")'>Small Group Training </a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("membershipfitLinxx")'>FitLinxx Training System</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("ptcancerexercise")'>Cancer Exercise Program</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/how-to-get-started.aspx" onclick='SpecialRedirect("membershipbecomeamember")'>How to get started</a></li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="modal" data-target=".bs-example-modal-lg">Schedules </a></li>
+
+
+                                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Locations <b class="caret"></b></a>
+                                            <div class="dropdown-menu max-width position">
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>FAMILY CENTER Ys</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/catonsville-baltimore-county.aspx" onclick='SpecialRedirect("familycenteryscatonsville")'>Catonsville <small>Baltimore County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/dancel-howard-county.aspx" onclick='SpecialRedirect("familycenterysdancel")'>Dancel  <small>Howard County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/druid-hills-baltimore-city.aspx" onclick='SpecialRedirect("familycenterysdruid")'>Druid Hill  <small>Baltimore City</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/greater-annapolis-anne-arundel-co.aspx" onclick='SpecialRedirect("familycenterysgreater")'>Greater Annapolis
+                                                                <br />
+                                                            <small>Anne Arundel County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/hill-caroll-county.aspx" onclick='SpecialRedirect("familycenteryshill")'>Hill  <small>Carroll County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/orokawa-baltimore-county.aspx" onclick='SpecialRedirect("familycenterysorokawa")'>Orokawa  <small>Baltimore County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/parkville-baltimore-county.aspx" onclick='SpecialRedirect("familycenterysparkville")'>Parkville  <small>Baltimore County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/pery-hall-baltimore-county.aspx" onclick='SpecialRedirect("familycenterysperry")'>Perry Hall  <small>Baltimore County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/ward-harford-county.aspx" onclick='SpecialRedirect("familycenterysward")'>Ward  <small>Harford County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/family-center-ys/weinberg-baltimore-city.aspx" onclick='SpecialRedirect("familycenterysweinberg")'>Weinberg  <small>Baltimore City</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/y-swim-center/y-swim-center-in-dundalk.aspx" onclick='SpecialRedirect("familycenterysdundalk")'>Y Swim Center in Dundalk
+                                                                <br />
+                                                            <small>Baltimore County </small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/y-swim-center/y-swim-center-in-randallstown.aspx" onclick='SpecialRedirect("familycenterysrandallstown")'>Y Swim Center in Randallstown
+                                                                <br />
+                                                            <small>Baltimore County</small></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>PRESCHOOL</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/catonsville-baltimore-county.aspx" onclick='SpecialRedirect("preschoolcatonsville")'>Catonsville <small>Baltimore County </small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/chipmunks-caroll-county.aspx" onclick='SpecialRedirect("preschoolchipmunks")'>Chipmunks <small>Carroll County </small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/owen-brown-howard-county.aspx" onclick='SpecialRedirect("preschoolowen")'>Owen Brown  <small>Howard County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/riverside-harford-county.aspx" onclick='SpecialRedirect("preschoolriverside")'>Riverside <small>Harford County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/tawson-baltimore-county.aspx" onclick='SpecialRedirect("preschooltowson")'>Towson  <small>Baltimore County</small></a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/preschool/weinberg-baltimore-city.aspx" onclick='SpecialRedirect("preschoolweinberg")'>Weinberg <small>Baltimore City</small></a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <label>HEAD START</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/head-start/headstart.aspx" onclick='SpecialRedirectPartThree("preschoolbaltimore","preschoolbaltimorecountry")'>Baltimore County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/head-start/headstart.aspx" onclick='SpecialRedirectPartThree("preschoolbaltimore","preschoolbaltimorecity")'>Baltimore </a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>
+                                                            BEFORE & AFTER SCHOOL
+                                                                <br />
+                                                            PROGRAMS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","bafspannearundelcounty")'>Anne Arundel County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","tabBaltimoreCity")'>Baltimore City</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","bafspbaltimorecounty")'>Baltimore County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","bafspcarrollcounty")'>Carroll County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","bafspharfordcounty")'>Harford County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/before-and-after-school-programs/before-and-after-school-programs.aspx" onclick='SpecialRedirectPartThree("baaspcommon","bafsphowardcounty")'>Howard County</a></li>
+
+                                                    </ul>
+                                                    <ul>
+                                                        <label>ASSOCIATION OFFICE</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>locations/association-office/baltimore.aspx" onclick='SpecialRedirect("associationofficebaltimore")'>Baltimore</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <label>CAMPS</label>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofilesanne")'>Anne Arundel County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofilesbaltimorecity")'>Baltimore City</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofilesbaltimore")'>Baltimore County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofilescarroll")'>Carroll County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofilesharford")'>Harford County</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/camps/camps.aspx" onclick='SpecialRedirectPartThree("campsprofiles","campsprofileshoward")'>Howard County</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Membership <b class="caret"></b></a>
+                                            <div class="dropdown-menu max-width-01 position-01">
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>membership/membership.aspx" onclick='SpecialRedirect("membershiptypes")'>Types & Rates</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>membership/membership.aspx" onclick='SpecialRedirect("membershipmember")'>Member Benefits</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>membership/membership.aspx" onclick='SpecialRedirect("membershippersonal")'>Personal Training</a></li>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>programs/personal-training/personal-training.aspx" onclick='SpecialRedirect("membershipfitLinxx")'>FitLinxx Training System</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("tabAnneArundelCounty")'>Financial Assistance</a></li>
+                                                        <li class="last"><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>membership/how-to-become-a-member.aspx" onclick='SpecialRedirect("membershiphowtobecomeamember")'>How to Become a Member</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown "><a href="" class="dropdown-toggle" data-toggle="dropdown">Our Mission <b class="caret"></b></a>
+                                            <div class="dropdown-menu max-width-01 position-02">
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissioncause")'>Cause</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissionmentoring")'>Mentoring</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissionvolunteering")'>Volunteering</a></li>
+                                                        <li><a target="_blank" href="http://yturkeytrots.blogspot.com/p/our-cause.html">Turkey Trot Charity 5K</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissiondonations")'>Your Donations at Work</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="common-left-float">
+                                                    <ul>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/our-mission.aspx" onclick='SpecialRedirect("ourmissionServing")'>Serving At-Risk Youth & Families</a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("tabAnneArundelCounty")'>Financial Assistance</a></li>
+                                                        <%-- <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/annual-reports.aspx" onclick='SpecialRedirect("ourmissionannualreport")'>Annual Report </a></li>
+                                                        <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>our-mission/strategic-plan.aspx" onclick='SpecialRedirect("ourmissionstrategicplan")'>Strategic Plan </a></li>--%>
+                                                        <li class="last"><a target="_blank" href="https://www.stayclassy.org/checkout/donation?eid=22445">Give back today </a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown last"><a href="https://www.stayclassy.org/checkout/donation?eid=22445" target="_blank" class="dropdown-toggle donate">DONATE
+                                        </a></li>
+                                        <%--   <li class="dropdown navbar-right last"><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="navbar-form navbar-left">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Search">
+                                                        <a href="" class="btn btn-common">Submit</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>--%>
+                                    </ul>
+                                    -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clear">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="dux-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/financial-assistance.aspx" onclick='SpecialRedirect("financialassistance")'>Financial Assistance </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/billing-inquiries.aspx" onclick='SpecialRedirect("billinginquiries")'>Billing Inquiries </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/employment.aspx" onclick='SpecialRedirect("employment")'>Employment </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/leadership.aspx" onclick='SpecialRedirect("leadership")'>Leadership </a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/media-center.aspx" onclick='SpecialRedirect("mediacenter")'>Media Center </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/sponsors.aspx" onclick='SpecialRedirect("sponsors")'>Sponsors </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/partnership-opportunities.aspx" onclick='SpecialRedirect("partnershipopportunities")'>Partnership Opportunities </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/capital-campaigns.aspx" onclick='SpecialRedirect("capitalcampaigns")'>Capital Campaigns </a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/privacy-policy.aspx" onclick='SpecialRedirect("privacypolicy")'>Privacy Policy </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>footer/site-map.aspx" onclick='SpecialRedirect("sitemap")'>Sitemap </a></li>
+                            <li><a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>contact-us.aspx" onclick='SpecialRedirect("contactus")'>Contact Us </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="explore-donate">
+                            <div class="btn-group">
+                                <%--    <a href="" class="btn btn-velvet">Explore your<br>
+                                    membership options<br>
+                                    TODAY!</a> <a href="" class="btn btn-velvet dropdown-toggle" data-toggle="dropdown"><span class="fa fa-angle-double-right fa-3x"></span></a>--%>
+
+
+                                <a href="<%= YPortal.Helpers.SiteSettings.BaseUrl %>membership/membership.aspx" class="common-btn btn-velvet" onclick='SpecialRedirect("membershiptypes")'><span class="btn-velvet-border">Explore your<br>
+                                    membership options<br>
+                                    TODAY!</span> </a>
+
+
+                            </div>
+                            <a target="_blank" href="https://www.stayclassy.org/checkout/donation?eid=22445" class="common-btn btn-velvet btn-red"><span class="btn-velvet-border ">DONATE</span> </a>
+
+                        </div>
+                        <div class="social-engagement">
+                            <a href="https://www.facebook.com/ycentralmaryland" class="fa fa-facebook fa-2x" target="_blank"></a>
+                            <a href="https://twitter.com/YofCentralMD" class="fa fa-twitter fa-2x" target="_blank"></a>
+                            <a href="https://plus.google.com/115251764806480154229/posts" class="fa fa-google-plus fa-2x" target="_blank"></a>
+                            <a href="http://www.youtube.com/user/YofCentralMaryland" class="fa fa-youtube fa-2x" target="_blank"></a>
+
+                        </div>
+                        <div class="footer-logo">
+                            <img src='<%= ResolveUrl("~/App_Style/images/footer-logo.png") %>' />
+                        </div>
+                        <div class="hidden-lg hidden-md footer-branding-01">
+                            <a href="">
+                                <img src='<%= ResolveUrl("~/App_Style/images/branding/y-of-central-md.png") %>' /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dux-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="<%= YPortal.Helpers.SiteSettings.BaseUrl %>App_Style/images/branding/small-branding.png" alt="Y">
+                        Copyright 2014 Y of Central Maryland
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h2 id="myLargeModalLabel" class="title-02">Easy to Enroll</h2>
+                    </div>
+                    <div class="frameWrapper">
+                        <iframe width="100%" height="auto" src="https://easytoenroll.ymaryland.org"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

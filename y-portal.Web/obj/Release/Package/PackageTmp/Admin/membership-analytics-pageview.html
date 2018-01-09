@@ -1,0 +1,24 @@
+﻿<div data-ng-controller="MemberShipAnalyticPageVisitCtrl">
+
+    <h2 class="title-01">Membership Campaign Analytics
+    </h2>
+
+    <div id="divMessage" runat="server" style="display: none;">
+    </div>
+
+    <div class="data-loader" data-ng-show="!memberContentoverview"></div>
+
+    <div data-ng-show="memberContentoverview">
+        
+        <div class="common-box-001 blues-01">
+            <span>{{UniquePageviews}}</span>
+            <label>Unique Views</label>
+        </div>
+
+        <div class="common-box-001 blues-02">
+            <span>{{Pageviews}}</span>
+            <label>Page Views</label>
+        </div>
+
+    </div>
+</div>

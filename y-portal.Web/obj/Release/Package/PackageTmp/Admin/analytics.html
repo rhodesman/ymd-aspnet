@@ -1,0 +1,178 @@
+﻿<div ng-controller="AnalyticCtrl">
+
+    <div>
+        <a href="#/googleAnalytics/analytics-geo-location">
+            <input type="button" class="btn  btn-info" value="Geo-Location" />
+        </a>
+        <a href="#/googleAnalytics/analytics-mobile-overview">
+            <input type="button" class="btn btn-success" value="Mobile-Overview" />
+        </a>
+        <a href="#/googleAnalytics/analytics-all-traffic">
+            <input type="button" class=" btn btn-default" value="All Traffic" />
+        </a>
+        <a href="#/googleAnalytics/analytics-top-visited-pages">
+            <input type="button" class="btn  btn-info" value="Top 10 Visited Pages" />
+        </a>
+
+
+    </div>
+
+
+    <h2 class="title-01">
+        Google Analytics
+    </h2>
+
+
+    <div id="divMessage" runat="server" style="display: none;">
+    </div>
+    <h4 class="title-04"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Overview</h4>
+
+    <div class="rgs-contain">
+
+        
+        <div class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <strong>Date Range:</strong>
+                <select ng-model="dateRangesModel" class="form-control" ng-options="dateR for dateR in dateRanges"></select>
+
+            </div>
+
+            <br />
+
+
+            <div class="form-group">
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="startDate" ng-readonly="startDateReadonly" datepicker />
+
+                <strong> - </strong>
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="endDate" ng-readonly="endDateReadonly" datepicker />
+            </div>
+
+            <input type="button" class="btn btn-primary" ng-hide="isCompare" value="Search" ng-click="Search()" />
+
+            <br />
+            <div class="form-group">
+                  <input type="checkbox" class="form-control" ng-model="isCompare" ng-change="ChangeCompareTo()" > <strong>Compare To</strong></input>
+                <select ng-model="dateCompareModel" class="form-control" ng-options="compareR for compareR in dateCompares" ng-disabled="!isCompare"></select>
+            </div>
+            <br />
+
+            <div class="form-group" ng-show="isCompare">
+                <input type="text" class="form-control" ng-model="compareStartDate" ng-readonly="true" />
+
+                <strong> - </strong>
+                <input type="text" class="form-control" ng-model="compareEndDate" ng-readonly="true" />
+            </div>
+
+            <input type="button" class="btn btn-primary" ng-show="isCompare" value="Search" ng-click="Search()" />
+        </div>
+
+
+
+        <br class="clear" />
+        <span class="text-danger error-01" ng-show="dateValidation">Start Date cannot be greater than End Date</span>
+
+    </div>
+     
+     <div class="data-loader" ng-show="!overview"></div>
+  
+    <div ng-show="overview">
+        <table class="table  table-bordered">
+            <thead>
+                <tr class="active">
+                    <th>
+                        Period
+                    </th>
+                    <th>
+                        Sessions
+                    </th>
+                    <th>
+                        Users
+                    </th>
+                    <th>
+                        Pageviews
+                    </th>
+                    <th>
+                        Pages / Session
+                    </th>
+                    <th>
+                        Avg. Session
+                    </th>
+                    <th>
+                        Bounce Rates
+                    </th>
+                    <th>
+                        % New Sessions
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="content in overview">
+                    <td> {{content.DateRange}}</td>
+                    <td>
+                        {{content.Sessions | number}}
+                    </td>
+                    <td>
+                        {{content.Users | number}}
+                    </td>
+                    <td>
+                        {{content.Pageviews | number}}
+                    </td>
+                    <td>
+                        {{content.PagePerSessions  | number}}
+                    </td>
+                    <td>
+                        {{content.AvgSessionDuration | secondsTohhmmss}}
+                    </td>
+                    <td>
+                        {{content.bounceRate | number:2}}%
+                    </td>
+                    <td>
+                        {{content.PNewSessions  | number:2}}%
+                    </td>
+
+                </tr>
+
+            
+
+            </tbody>
+        </table>
+
+
+        <table class="table  table-bordered">
+            <thead>
+                <tr class="active">
+
+                    <th>
+                        New Visitor
+                    </th>
+                    <th>
+                        Returning Visitor
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="content in overview">
+
+                    <td>
+                        {{content.PNewVisitor | number:2}}%
+                    </td>
+                    <td>
+                        {{content.PReturningVisitor | number:2}}%
+                    </td>
+                </tr>
+
+           
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>
+
+

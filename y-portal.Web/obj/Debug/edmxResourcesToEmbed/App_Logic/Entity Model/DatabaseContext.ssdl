@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDB_Model_NS.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EmployeeDB_Model_NSStoreContainer">
+    <EntitySet Name="AdminUser" EntityType="EmployeeDB_Model_NS.Store.AdminUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AppSettings" EntityType="EmployeeDB_Model_NS.Store.AppSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Blasts" EntityType="EmployeeDB_Model_NS.Store.Blasts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Campaigns" EntityType="EmployeeDB_Model_NS.Store.Campaigns" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="EmployeeDB_Model_NS.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Interests" EntityType="EmployeeDB_Model_NS.Store.Interests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LandingPageProspect" EntityType="EmployeeDB_Model_NS.Store.LandingPageProspect" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Locations" EntityType="EmployeeDB_Model_NS.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Blasts_Campaigns" Association="EmployeeDB_Model_NS.Store.FK_Blasts_Campaigns">
+      <End Role="Campaigns" EntitySet="Campaigns" />
+      <End Role="Blasts" EntitySet="Blasts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppSettings">
+    <Key>
+      <PropertyRef Name="AppSettingsId" />
+    </Key>
+    <Property Name="AppSettingsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppKey" Type="varchar" MaxLength="50" />
+    <Property Name="AppValue" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Blasts">
+    <Key>
+      <PropertyRef Name="BlastId" />
+    </Key>
+    <Property Name="BlastId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CampaignId" Type="bigint" />
+    <Property Name="BlastDisplayName" Type="varchar" MaxLength="100" />
+    <Property Name="BlastStartDate" Type="datetime" />
+    <Property Name="BlastEndDate" Type="datetime" />
+    <Property Name="BlastType" Type="varchar" MaxLength="100" />
+    <Property Name="BlastStatus" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Campaigns">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Name="CampaignId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CampaignName" Type="varchar" MaxLength="100" />
+    <Property Name="CampaignCode" Type="varchar" MaxLength="100" />
+    <Property Name="SilverpopDatabaseId" Type="bigint" />
+    <Property Name="SilverpopDatabaseName" Type="varchar" MaxLength="100" />
+    <Property Name="TotalProspects" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Location" Type="varchar" MaxLength="70" />
+    <Property Name="Interests" Type="varchar" MaxLength="400" />
+    <Property Name="Feedback" Type="varchar" MaxLength="500" />
+    <Property Name="DateSubmitted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Interests">
+    <Key>
+      <PropertyRef Name="InterestId" />
+    </Key>
+    <Property Name="InterestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="300" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LandingPageProspect">
+    <Key>
+      <PropertyRef Name="ProspectId" />
+    </Key>
+    <Property Name="ProspectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubmittedOn" Type="datetime" />
+    <Property Name="FirstName" Type="varchar" MaxLength="1000" />
+    <Property Name="LastName" Type="varchar" MaxLength="1000" />
+    <Property Name="Email" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="300" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="EmailTemplate" Type="varchar" MaxLength="100" />
+    <Property Name="LocationPage" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Blasts_Campaigns">
+    <End Role="Campaigns" Type="EmployeeDB_Model_NS.Store.Campaigns" Multiplicity="0..1" />
+    <End Role="Blasts" Type="EmployeeDB_Model_NS.Store.Blasts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaigns">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Blasts">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

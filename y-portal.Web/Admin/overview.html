@@ -1,0 +1,81 @@
+﻿<div ng-controller="OverViewCtrl">
+    <h2 class="title-01">Overview</h2>
+
+    <div id="divMessage" style="display: none;"></div>
+
+    <div class="data-loader" ng-show="!dataList"></div>
+    <div class="alert alert-warning" ng-show="dataList.length == 0">No data found.</div>
+
+    <div class="common-box-001 blues-01">
+        <span>{{emailTotal.TotalSent | number}}</span>
+        <label>Total Sent </label>
+    </div>
+
+    <div class="common-box-001 blues-02">
+        <!-- TotalOpened returns Total Unique Opens  -->
+        <span>{{emailTotal.TotalOpened | number}}</span>
+        <label>Total Unique Opens </label>
+    </div>
+
+    <div class="common-box-001 blues-02">
+        <!--Total Unique Clicks-->
+        <span>{{emailTotal.TotalClicked | number}}</span>
+        <label>Total Unique Clicks</label>
+    </div>
+
+    <div class="common-box-001 blues-02">
+        <!--TotalClicked = Total Unique Clicks  , TotalOpened = Total Unique Opens-->
+        <span>{{ ((emailTotal.TotalClicked *100)/emailTotal.TotalOpened | number:2)}}% </span>
+        <label>Unique Open Rate</label>
+    </div>
+
+    <div class="common-box-001 blues-02">
+        <!--TotalClicked = Total Unique Clicks  , TotalOpened = Total Unique Opens-->
+        <span>{{(emailTotal.TotalOpened*100)/emailTotal.TotalSent | number:2}}%</span>
+        <label>Unique Click Rate</label>
+    </div>
+
+
+    <div class="clear"></div>
+
+    <div ng-show="dataList">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="active">
+                    <th>Subject Line</th>
+                    <th>Send Date</th>
+                    <th>Total Sent</th>
+                    <th>Opened</th>
+                    <th>Unique Opens</th>
+                    <th>Unique Open Rate</th>
+                    <th>Clicks</th>
+                    <th>Unique Clicks</th>
+                    <th>Unique Click Rate</th>
+                    <th>Opt Out</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="emailOverview in dataList">
+                    <td><a href="#/touch/{{emailOverview.BlastId}}">{{emailOverview.MailingSubject}}</a></td>
+                    <td>{{emailOverview.BlastStartDate | date}}</td>
+                    <td>{{emailOverview.TotalSent | number}}</td>
+                    <td>{{emailOverview.TotalOpened | number}}</td>
+                    <td>{{emailOverview.UniqueOpen | number}} </td>
+                    <td>{{emailOverview.UniqueOpen ==0 ? 0 :((emailOverview.UniqueClick *100 )/emailOverview.UniqueOpen | number:2 )}}%  </td>
+                    <td>{{emailOverview.TotalClicked | number}}</td>
+                    <td>{{emailOverview.UniqueClick | number}}</td>
+                    <td>{{emailOverview.UniqueClick==0 ?  0:  ((emailOverview.UniqueOpen *100 )/emailOverview.TotalSent | number:2)}}% </td>
+                    <td>{{emailOverview.TotalOptout | number}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination">
+            <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerFirst()">&laquo;&laquo;</a></li>
+            <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerPrev()">&laquo;</a></li>
+            <li ng-class="{'active': n == pageNumber}" ng-repeat="n in range(startPager, endPager)"><a href="javascript:void(0);" ng-click="GetResultPaged(n)">{{n}}</a></li>
+            <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerNext()">&raquo;</a></li>
+            <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerLast()">&raquo;&raquo;</a></li>
+        </ul>
+    </div>
+</div>
+

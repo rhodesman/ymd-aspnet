@@ -1,0 +1,139 @@
+﻿<div ng-controller="AnalyticTopVisitedPageViewCtrl">
+        <a href="#/googleAnalytics/analytics" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Back</a>
+    <h2 class="title-01">Google Analytics
+    </h2>
+
+
+    <div id="divMessage" runat="server" style="display: none;">
+    </div>
+    <h4 class="title-04"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Top 10 Visited Pages</h4>
+
+  <!--  <div class="rgs-contain">
+
+
+
+        <div class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <strong>Start Date:</strong>
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="startDate" datepicker />
+
+                <strong>End Date:</strong>
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="endDate" datepicker />
+            </div>
+            <input type="button" class="btn btn-primary" value="Search" ng-click="Search()" />
+        </div>
+
+        <br class="clear" />
+        <span class="text-danger error-01" ng-show="dateValidation">Start Date cannot be greater than End Date</span>
+
+    </div>
+
+    <div class="data-loader" ng-show="!contentoverview"></div>
+   -->
+    
+       <div class="rgs-contain">
+
+        
+        <div class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <strong>Date Range:</strong>
+                <select ng-model="dateRangesModel" class="form-control" ng-options="dateR for dateR in dateRanges"></select>
+
+            </div>
+
+            <br />
+
+
+            <div class="form-group">
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="startDate" ng-readonly="startDateReadonly" datepicker />
+
+                <strong> - </strong>
+                <input type="text" class="form-control" ng-change="validateDate()" ng-model="endDate" ng-readonly="endDateReadonly" datepicker />
+            </div>
+
+            <input type="button" class="btn btn-primary" ng-hide="isCompare" value="Search" ng-click="Search()" />
+
+            <br />
+            <div class="form-group">
+                  <input type="checkbox" class="form-control" ng-model="isCompare" ng-change="ChangeCompareTo()" > <strong>Compare To</strong></input>
+                <select ng-model="dateCompareModel" class="form-control" ng-options="compareR for compareR in dateCompares" ng-disabled="!isCompare"></select>
+            </div>
+            <br />
+
+            <div class="form-group" ng-show="isCompare">
+                <input type="text" class="form-control" ng-model="compareStartDate" ng-readonly="true" />
+
+                <strong> - </strong>
+                <input type="text" class="form-control" ng-model="compareEndDate" ng-readonly="true" />
+            </div>
+
+            <input type="button" class="btn btn-primary" ng-show="isCompare" value="Search" ng-click="Search()" />
+
+
+        </div>
+
+
+
+        <br class="clear" />
+        <span class="text-danger error-01" ng-show="dateValidation">Start Date cannot be greater than End Date</span>
+
+    </div>
+     
+     <div class="data-loader" ng-show="!contentoverview" ></div>
+  
+
+
+
+     <div ng-show="contentoverview">
+        <table class="table  table-bordered">
+            <thead>
+                <tr class="active">
+                    <th>Rank
+                    </th>
+                    <th>Page Path
+                    </th>
+                    <th>Page Title
+                    </th>
+                    <th>Unique Views
+                    </th>
+                    <th>Page Views
+                    </th>
+                    <th>%Page Views
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="content in contentoverview">
+                    <td>{{content.Rank}}
+                    </td>
+                    <td>{{content.PagePath}}
+                    </td>
+                    <td>{{content.PageTitle }}
+                    </td>                
+                    <td>{{content.UniquePageViews  | number}}
+                    </td>
+                    <td>{{content.PageViews  | number}}
+                    </td>
+                     <td>{{content.PageViewsPercentage  | number:2}}
+                    </td>                  
+                </tr>
+            </tbody>
+        </table>
+          <ul class="pagination">
+            <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerFirst()">&laquo;&laquo;</a></li>
+            <li ng-show="startPager != 1"><a href="javascript:void(0);" ng-click="PagerPrev()">&laquo;</a></li>
+            <li ng-class="{'active': n == pageNumber}" ng-repeat="n in range(startPager, endPager)"><a href="javascript:void(0);" ng-click="GetResultPaged(n)">{{n}}</a></li>
+            <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerNext()">&raquo;</a></li>
+            <li ng-show="endPager != totalCount"><a href="javascript:void(0);" ng-click="PagerLast()">&raquo;&raquo;</a></li>
+        </ul>
+
+      
+
+    </div>
+
+
+
+   
+</div>
+
+

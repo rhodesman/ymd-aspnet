@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--You are allowed to change only Width and Height value. If you modify this xml then you will get runtime error.-->
+<ImageDimension>
+  <ImageTypeAndDimension>
+    <TypeName>Portrait</TypeName>
+    <Width>428</Width>
+    <Height>590</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Landscape</TypeName>
+    <Width>590</Width>
+    <Height>428</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Square</TypeName>
+    <Width>545</Width>
+    <Height>545</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Listing</TypeName>
+    <Width>220</Width>
+    <Height>150</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Thumbnail</TypeName>
+    <Width>130</Width>
+    <Height>90</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Logo</TypeName>
+    <Width>310</Width>
+    <Height>110</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>Icon</TypeName>
+    <Width>128</Width>
+    <Height>128</Height>
+  </ImageTypeAndDimension>
+
+  <ImageTypeAndDimension>
+    <TypeName>FavIcon</TypeName>
+    <Width>32</Width>
+    <Height>32</Height>
+  </ImageTypeAndDimension>
+
+</ImageDimension>

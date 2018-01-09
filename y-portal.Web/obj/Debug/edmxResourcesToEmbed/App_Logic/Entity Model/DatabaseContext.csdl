@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model_Namespace" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminUsers" EntityType="Model_Namespace.AdminUser" />
+    <EntitySet Name="Contacts" EntityType="Model_Namespace.Contact" />
+    <EntitySet Name="Interests" EntityType="Model_Namespace.Interest" />
+    <EntitySet Name="Locations" EntityType="Model_Namespace.Location" />
+    <EntitySet Name="AppSettings" EntityType="Model_Namespace.AppSetting" />
+    <EntitySet Name="Blasts" EntityType="Model_Namespace.Blast" />
+    <EntitySet Name="Campaigns" EntityType="Model_Namespace.Campaign" />
+    <AssociationSet Name="FK_Blasts_Campaigns" Association="Model_Namespace.FK_Blasts_Campaigns">
+      <End Role="Campaign" EntitySet="Campaigns" />
+      <End Role="Blast" EntitySet="Blasts" />
+    </AssociationSet>
+    <EntitySet Name="LandingPageProspects" EntityType="Model_Namespace.LandingPageProspect" />
+  </EntityContainer>
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Type="Int32" Name="ContactId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Location" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Interests" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Feedback" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DateSubmitted" Precision="3" />
+  </EntityType>
+  <EntityType Name="Interest">
+    <Key>
+      <PropertyRef Name="InterestId" />
+    </Key>
+    <Property Type="Int32" Name="InterestId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="DisplayOrder" />
+    <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Type="Int32" Name="LocationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="DisplayOrder" />
+    <Property Type="String" Name="Email" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailTemplate" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LocationPage" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="AppSettingsId" />
+    </Key>
+    <Property Type="Int32" Name="AppSettingsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AppKey" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AppValue" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Blast">
+    <Key>
+      <PropertyRef Name="BlastId" />
+    </Key>
+    <Property Name="BlastId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CampaignId" Type="Int64" />
+    <Property Name="BlastDisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BlastStartDate" Type="DateTime" Precision="3" />
+    <Property Name="BlastEndDate" Type="DateTime" Precision="3" />
+    <Property Name="BlastType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BlastStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Campaign" Relationship="Model_Namespace.FK_Blasts_Campaigns" FromRole="Blast" ToRole="Campaign" />
+  </EntityType>
+  <EntityType Name="Campaign">
+    <Key>
+      <PropertyRef Name="CampaignId" />
+    </Key>
+    <Property Name="CampaignId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CampaignName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CampaignCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SilverpopDatabaseId" Type="Int64" />
+    <Property Name="SilverpopDatabaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TotalProspects" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Blasts" Relationship="Model_Namespace.FK_Blasts_Campaigns" FromRole="Campaign" ToRole="Blast" />
+  </EntityType>
+  <Association Name="FK_Blasts_Campaigns">
+    <End Type="Model_Namespace.Campaign" Role="Campaign" Multiplicity="0..1" />
+    <End Type="Model_Namespace.Blast" Role="Blast" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Campaign">
+        <PropertyRef Name="CampaignId" />
+      </Principal>
+      <Dependent Role="Blast">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LandingPageProspect">
+    <Key>
+      <PropertyRef Name="ProspectId" />
+    </Key>
+    <Property Type="Int32" Name="ProspectId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="SubmittedOn" Precision="3" />
+    <Property Type="String" Name="FirstName" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
